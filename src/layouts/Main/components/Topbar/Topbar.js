@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { alpha, useTheme } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from '@mui/material/Link';
 
 import { NavItem } from './components';
 
@@ -46,65 +47,98 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       </Box>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box>
-          <NavItem
-            title={'Landings'}
-            id={'landing-pages'}
-            items={landingPages}
-            colorInvert={colorInvert}
-          />
+          <Link color={'white'} href={'#'} underline={'none'}>
+            Home
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Company'}
-            id={'company-pages'}
-            items={companyPages}
-            colorInvert={colorInvert}
-          />
+          <Link color={'white'} href={'#'} underline={'none'}>
+            About
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Account'}
-            id={'account-pages'}
-            items={accountPages}
-            colorInvert={colorInvert}
-          />
+          <Link color={'white'} href={'#'} underline={'none'}>
+            Roadmap
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Pages'}
-            id={'secondary-pages'}
-            items={secondaryPages}
-            colorInvert={colorInvert}
-          />
+          <Link color={'white'} href={'#'} underline={'none'}>
+            Community
+          </Link>
         </Box>
         <Box marginLeft={4}>
-          <NavItem
-            title={'Blog'}
-            id={'blog-pages'}
-            items={blogPages}
-            colorInvert={colorInvert}
-          />
+          <Link color={'white'} href={'#'} underline={'none'}>
+            Team
+          </Link>
         </Box>
-        <Box marginLeft={4}>
-          <NavItem
-            title={'Portfolio'}
-            id={'portfolio-pages'}
-            items={portfolioPages}
-            colorInvert={colorInvert}
-          />
-        </Box>
-        <Box marginLeft={4}>
-          <Button
-            variant="contained"
-            color="primary"
-            component="a"
-            target="blank"
-            href="https://mui.com/store/items/the-front-landing-page/"
-            size="large"
-          >
-            Buy now
-          </Button>
-        </Box>
+        {/*<Box>*/}
+        {/*  <NavItem*/}
+        {/*      title={'Landings'}*/}
+        {/*      id={'landing-pages'}*/}
+        {/*      items={landingPages}*/}
+        {/*      colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Landings'}*/}
+        {/*    id={'landing-pages'}*/}
+        {/*    items={landingPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Company'}*/}
+        {/*    id={'company-pages'}*/}
+        {/*    items={companyPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Account'}*/}
+        {/*    id={'account-pages'}*/}
+        {/*    items={accountPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Pages'}*/}
+        {/*    id={'secondary-pages'}*/}
+        {/*    items={secondaryPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Blog'}*/}
+        {/*    id={'blog-pages'}*/}
+        {/*    items={blogPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <NavItem*/}
+        {/*    title={'Portfolio'}*/}
+        {/*    id={'portfolio-pages'}*/}
+        {/*    items={portfolioPages}*/}
+        {/*    colorInvert={colorInvert}*/}
+        {/*  />*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <Button*/}
+        {/*    variant="contained"*/}
+        {/*    color="primary"*/}
+        {/*    component="a"*/}
+        {/*    target="blank"*/}
+        {/*    href="https://mui.com/store/items/the-front-landing-page/"*/}
+        {/*    size="large"*/}
+        {/*  >*/}
+        {/*    Buy now*/}
+        {/*  </Button>*/}
+        {/*</Box>*/}
       </Box>
       <Box sx={{ display: { xs: 'block', md: 'none' } }} alignItems={'center'}>
         <Button

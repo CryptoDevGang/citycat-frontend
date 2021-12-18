@@ -37,6 +37,9 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
     threshold: 38,
   });
 
+  // Set themeMode to dark as default theme color
+  window.localStorage.setItem('themeMode', 'dark');
+
   return (
     <Box>
       <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>

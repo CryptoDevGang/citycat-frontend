@@ -109,7 +109,7 @@ const routes = [
     renderer: (params = {}) => <ServiceView {...params} />,
   },
   {
-    path: '/web-basic',
+    path: '/citycat',
     renderer: (params = {}) => <WebBasicView {...params} />,
   },
   {

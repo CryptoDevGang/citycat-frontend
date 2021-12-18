@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import TopGif from '../../../../resources/top.gif'
 
 const Hero = () => {
   const theme = useTheme();
@@ -15,6 +16,28 @@ const Hero = () => {
 
   return (
     <Grid container spacing={4}>
+      <Grid item xs={12} md={6}>
+        <Box
+            height={1}
+            width={1}
+            display={'flex'}
+            justifyContent={'center'}
+            alignItems={'center'}
+        >
+          <Box height={1} width={1} maxWidth={500}>
+            <Box
+                component={'img'}
+                src={TopGif}
+                width={1}
+                height={1}
+                sx={{
+                  filter:
+                      theme.palette.mode === 'dark' ? 'brightness(0.8)' : 'none',
+                }}
+            />
+          </Box>
+        </Box>
+      </Grid>
       <Grid item container alignItems={'center'} xs={12} md={6}>
         <Box data-aos={isMd ? 'fade-right' : 'fade-up'}>
           <Box marginBottom={2}>
@@ -25,7 +48,6 @@ const Hero = () => {
                 fontWeight: 700,
               }}
             >
-              Develop anything your{' '}
               <Typography
                 component={'span'}
                 variant={'inherit'}
@@ -37,7 +59,7 @@ const Hero = () => {
                   )} 0%)`,
                 }}
               >
-                business needs.
+                City Cat
               </Typography>
             </Typography>
           </Box>
@@ -48,8 +70,7 @@ const Hero = () => {
               color="text.secondary"
               sx={{ fontWeight: 400 }}
             >
-              theFront will make your product look modern and professional while
-              saving you precious time.
+              There are new cats in the city. There are 3,000 unique generated NFTs. And they are ready to take over the world !
             </Typography>
           </Box>
           <Box
@@ -63,51 +84,26 @@ const Hero = () => {
               color="primary"
               size="large"
               fullWidth={isMd ? false : true}
-              href={'https://mui.com/store/items/the-front-landing-page/'}
-              target={'_blank'}
+              onClick={() => alert('Please connect Stacks wallet')}
             >
-              Purchase now
+              Mint
             </Button>
             <Box
               marginTop={{ xs: 2, sm: 0 }}
               marginLeft={{ sm: 2 }}
               width={{ xs: '100%', md: 'auto' }}
             >
-              <Button
-                component={'a'}
-                href={'/docs/introduction'}
-                variant="outlined"
-                color="primary"
-                size="large"
-                fullWidth={isMd ? false : true}
-              >
-                View documentation
-              </Button>
+              {/*<Button*/}
+              {/*  component={'a'}*/}
+              {/*  href={'/docs/introduction'}*/}
+              {/*  variant="outlined"*/}
+              {/*  color="primary"*/}
+              {/*  size="large"*/}
+              {/*  fullWidth={isMd ? false : true}*/}
+              {/*>*/}
+              {/*  View documentation*/}
+              {/*</Button>*/}
             </Box>
-          </Box>
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Box
-          height={1}
-          width={1}
-          display={'flex'}
-          justifyContent={'center'}
-          alignItems={'center'}
-        >
-          <Box height={1} width={1} maxWidth={500}>
-            <Box
-              component={'img'}
-              src={
-                'https://assets.maccarianagency.com/svg/illustrations/drawkit-illustration4.svg'
-              }
-              width={1}
-              height={1}
-              sx={{
-                filter:
-                  theme.palette.mode === 'dark' ? 'brightness(0.8)' : 'none',
-              }}
-            />
           </Box>
         </Box>
       </Grid>
