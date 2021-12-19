@@ -50,10 +50,10 @@ const WebBasic = () => {
           ></path>
         </Box>
       </Box>
-      <Container paddingTop={'0 !important'}>
-        <Services />
-      </Container>
-      <Container maxWidth={1} paddingTop={'0 !important'}>
+      {/*<Container paddingTop={'0 !important'}>*/}
+      {/*  <Services />*/}
+      {/*</Container>*/}
+      <Container>
         <Partners />
       </Container>
       <Box
