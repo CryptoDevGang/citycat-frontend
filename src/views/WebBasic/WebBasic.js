@@ -14,6 +14,7 @@ import {
   Reviews,
   Services,
   Users,
+  PromoNumbers
 } from './components';
 
 const WebBasic = () => {
@@ -54,7 +55,7 @@ const WebBasic = () => {
       {/*  <Services />*/}
       {/*</Container>*/}
       <Container>
-        <Partners />
+        <PromoNumbers />
       </Container>
       <Box
         position={'relative'}
@@ -63,6 +64,9 @@ const WebBasic = () => {
         }}
       >
         <Box>
+          <Container>
+            <Partners />
+          </Container>
           <Container>
             <Contact />
           </Container>
