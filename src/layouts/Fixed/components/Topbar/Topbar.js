@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import { alpha, useTheme } from '@mui/material/styles';
+import {alpha, useTheme} from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import { ThemeModeToggler } from './components';
 
 const Topbar = ({ onSidebarOpen }) => {
   const theme = useTheme();
@@ -30,7 +28,7 @@ const Topbar = ({ onSidebarOpen }) => {
           component={'img'}
           src={
             mode === 'light'
-              ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
+              ? '/city_cats_logo.svg'
               : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
           }
           height={1}
@@ -74,9 +72,6 @@ const Topbar = ({ onSidebarOpen }) => {
           </Link>
         </Box>
         <Box marginLeft={3}>
-          <ThemeModeToggler />
-        </Box>
-        <Box marginLeft={3}>
           <Button
             variant="contained"
             color="primary"
@@ -90,9 +85,6 @@ const Topbar = ({ onSidebarOpen }) => {
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'flex', md: 'none' } }} alignItems={'center'}>
-        <Box marginRight={1}>
-          <ThemeModeToggler />
-        </Box>
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"

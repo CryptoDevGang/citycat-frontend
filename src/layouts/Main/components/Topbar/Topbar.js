@@ -26,19 +26,20 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       justifyContent={'space-between'}
       alignItems={'center'}
       width={1}
+      sx={{background: "#3E27AF", padding: "10px 10px"}}
     >
       <Box
         display={'flex'}
         component="a"
         href="/"
         title="theFront"
-        width={{ xs: 100, md: 120 }}
+        width={{ xs: 100, md: 150 }}
       >
         <Box
           component={'img'}
           src={
             mode === 'light' && !colorInvert
-              ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
+              ? '/city_cats_logo.svg'
               : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
           }
           height={1}
@@ -71,74 +72,6 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
             Team
           </Link>
         </Box>
-        {/*<Box>*/}
-        {/*  <NavItem*/}
-        {/*      title={'Landings'}*/}
-        {/*      id={'landing-pages'}*/}
-        {/*      items={landingPages}*/}
-        {/*      colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Landings'}*/}
-        {/*    id={'landing-pages'}*/}
-        {/*    items={landingPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Company'}*/}
-        {/*    id={'company-pages'}*/}
-        {/*    items={companyPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Account'}*/}
-        {/*    id={'account-pages'}*/}
-        {/*    items={accountPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Pages'}*/}
-        {/*    id={'secondary-pages'}*/}
-        {/*    items={secondaryPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Blog'}*/}
-        {/*    id={'blog-pages'}*/}
-        {/*    items={blogPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <NavItem*/}
-        {/*    title={'Portfolio'}*/}
-        {/*    id={'portfolio-pages'}*/}
-        {/*    items={portfolioPages}*/}
-        {/*    colorInvert={colorInvert}*/}
-        {/*  />*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <Button*/}
-        {/*    variant="contained"*/}
-        {/*    color="primary"*/}
-        {/*    component="a"*/}
-        {/*    target="blank"*/}
-        {/*    href="https://mui.com/store/items/the-front-landing-page/"*/}
-        {/*    size="large"*/}
-        {/*  >*/}
-        {/*    Buy now*/}
-        {/*  </Button>*/}
-        {/*</Box>*/}
       </Box>
       <Box sx={{ display: { xs: 'block', md: 'none' } }} alignItems={'center'}>
         <Button

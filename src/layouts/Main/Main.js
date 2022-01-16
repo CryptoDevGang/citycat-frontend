@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -10,11 +10,11 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Container from 'components/Container';
 import TopNav from 'components/TopNav';
 
-import { Topbar, Sidebar, Footer } from './components';
+import {Topbar, Sidebar, Footer} from './components';
 
 import pages from '../navigation';
 
-const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
+const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -37,14 +37,16 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
     threshold: 38,
   });
 
-  // Set themeMode to dark as default theme color
-  window.localStorage.setItem('themeMode', 'dark');
+  useEffect(() => {
+    window.localStorage.setItem('themeMode', 'light');
+  }, [])
+
 
   return (
     <Box>
       <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert} />
+        <Container paddingTop={'!important'} paddingBottom={'0 !important'}>
+          <TopNav colorInvert={colorInvert}/>
         </Container>
       </Box>
       <AppBar
@@ -55,7 +57,7 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
         }}
         elevation={trigger ? 1 : 0}
       >
-        <Container paddingY={1}>
+        <Container>
           <Topbar
             onSidebarOpen={handleSidebarOpen}
             pages={pages}
@@ -71,11 +73,8 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
       />
       <main>
         {children}
-        <Divider />
+        <Divider/>
       </main>
-      <Container paddingY={4}>
-        <Footer />
-      </Container>
     </Box>
   );
 };
