@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { alpha, useTheme } from '@mui/material/styles';
+import {alpha, useTheme} from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from '@mui/material/Link';
 
-import { NavItem } from './components';
+import {NavItem} from './components';
 
-const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
+const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
-  const { mode } = theme.palette;
+  const {mode} = theme.palette;
   const {
     landings: landingPages,
     secondary: secondaryPages,
@@ -26,14 +26,14 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       justifyContent={'space-between'}
       alignItems={'center'}
       width={1}
-      sx={{background: "#3E27AF", padding: "10px 10px"}}
+      sx={{background: "#3E27AF", padding: "10px 40px"}}
     >
       <Box
         display={'flex'}
         component="a"
         href="/"
         title="theFront"
-        width={{ xs: 100, md: 150 }}
+        width={{xs: 100, md: 150}}
       >
         <Box
           component={'img'}
@@ -46,34 +46,46 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
           width={1}
         />
       </Box>
-      <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
-        <Box>
-          <Link color={'white'} href={'#'} underline={'none'}>
-            Home
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-          <Link color={'white'} href={'#'} underline={'none'}>
-            About
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-          <Link color={'white'} href={'#'} underline={'none'}>
-            Roadmap
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-          <Link color={'white'} href={'#'} underline={'none'}>
-            Community
-          </Link>
-        </Box>
-        <Box marginLeft={4}>
-          <Link color={'white'} href={'#'} underline={'none'}>
-            Team
-          </Link>
+      <Box sx={{display: {xs: 'none', md: 'flex'}}} alignItems={'center'}>
+        {/*<Box>*/}
+        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
+        {/*    Home*/}
+        {/*  </Link>*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
+        {/*    About*/}
+        {/*  </Link>*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
+        {/*    Roadmap*/}
+        {/*  </Link>*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
+        {/*    Community*/}
+        {/*  </Link>*/}
+        {/*</Box>*/}
+        {/*<Box marginLeft={4}>*/}
+        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
+        {/*    Team*/}
+        {/*  </Link>*/}
+        {/*</Box>*/}
+        <Box sx={{display: "flex", marginBottom: "-8px"}}>
+          <Box mr={2} sx={{alignSelf: "center"}}>
+            <a href={"https://twitter.com/Hollycat_box"} target={"_blank"}>
+              <img style={{height: "28px"}} src={"/twitter_logo.png"}/>
+            </a>
+          </Box>
+          <Box sx={{alignSelf: "center"}}>
+            <a href={"https://discord.gg/HezwYHvece"} target={"_blank"}>
+              <img style={{height: "32px"}} src={"/discord.png"}/>
+            </a>
+          </Box>
         </Box>
       </Box>
-      <Box sx={{ display: { xs: 'block', md: 'none' } }} alignItems={'center'}>
+      <Box sx={{display: {xs: 'block', md: 'none'}}} alignItems={'center'}>
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"
@@ -85,7 +97,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
             borderColor: alpha(theme.palette.divider, 0.2),
           }}
         >
-          <MenuIcon />
+          <MenuIcon/>
         </Button>
       </Box>
     </Box>

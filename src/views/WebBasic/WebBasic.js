@@ -17,6 +17,7 @@ import {
   PromoNumbers
 } from './components';
 import {CityBackgroundSvg} from "../../components/CityBackgroundSvg";
+import * as url from "url";
 
 const WebBasic = () => {
   const theme = useTheme();
@@ -32,7 +33,8 @@ const WebBasic = () => {
         }}
       >
         <Container>
-          <CityBackgroundSvg/>
+          <img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>
+          {/*<CityBackgroundSvg/>*/}
         </Container>
       </Box>
     </Main>
