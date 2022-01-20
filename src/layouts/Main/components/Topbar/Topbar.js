@@ -46,7 +46,7 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
           width={1}
         />
       </Box>
-      <Box sx={{display: {xs: 'none', md: 'flex'}}} alignItems={'center'}>
+      <Box sx={{display: {xs: 'flex', md: 'flex'}}} alignItems={'center'}>
         {/*<Box>*/}
         {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
         {/*    Home*/}
@@ -85,7 +85,7 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{display: {xs: 'block', md: 'none'}}} alignItems={'center'}>
+      <Box sx={{display: {xs: 'none', md: 'none'}}} alignItems={'center'}>
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"

@@ -21,54 +21,54 @@ const SidebarNav = ({ pages }) => {
 
   return (
     <Box>
-      <Box width={1} paddingX={2} paddingY={1}>
-        <Box
-          display={'flex'}
-          component="a"
-          href="/"
-          title="theFront"
-          width={{ xs: 100, md: 120 }}
-        >
-          <Box
-            component={'img'}
-            src={
-              mode === 'light'
-                ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
-                : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-            }
-            height={1}
-            width={1}
-          />
-        </Box>
-      </Box>
+      {/*<Box width={1} paddingX={2} paddingY={1}>*/}
+      {/*  <Box*/}
+      {/*    display={'flex'}*/}
+      {/*    component="a"*/}
+      {/*    href="/"*/}
+      {/*    title="theFront"*/}
+      {/*    width={{ xs: 100, md: 120 }}*/}
+      {/*  >*/}
+      {/*    <Box*/}
+      {/*      component={'img'}*/}
+      {/*      src={*/}
+      {/*        mode === 'light'*/}
+      {/*          ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'*/}
+      {/*          : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'*/}
+      {/*      }*/}
+      {/*      height={1}*/}
+      {/*      width={1}*/}
+      {/*    />*/}
+      {/*  </Box>*/}
+      {/*</Box>*/}
       <Box paddingX={2} paddingY={2}>
-        <Box>
-          <NavItem title={'Landings'} items={landingPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Company'} items={companyPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Pages'} items={secondaryPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Account'} items={accountPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Blog'} items={blogPages} />
-        </Box>
-        <Box>
-          <NavItem title={'Portfolio'} items={portfolioPages} />
-        </Box>
+        {/*<Box>*/}
+        {/*  <NavItem title={'Landings'} items={landingPages} />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem title={'Company'} items={companyPages} />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem title={'Pages'} items={secondaryPages} />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem title={'Account'} items={accountPages} />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem title={'Blog'} items={blogPages} />*/}
+        {/*</Box>*/}
+        {/*<Box>*/}
+        {/*  <NavItem title={'Portfolio'} items={portfolioPages} />*/}
+        {/*</Box>*/}
         <Box marginTop={2}>
           <Button
             size={'large'}
             variant="outlined"
             fullWidth
             component="a"
-            href="/docs/introduction"
+            href="https://twitter.com/Hollycat_box"
           >
-            Documentation
+            Twitter
           </Button>
         </Box>
         <Box marginTop={1}>
@@ -79,9 +79,9 @@ const SidebarNav = ({ pages }) => {
             fullWidth
             component="a"
             target="blank"
-            href="https://mui.com/store/items/the-front-landing-page/"
+            href="https://discord.gg/HezwYHvece"
           >
-            Purchase now
+            Discord
           </Button>
         </Box>
       </Box>
