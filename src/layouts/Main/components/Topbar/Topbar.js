@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Link from '@mui/material/Link';
 
 import {NavItem} from './components';
+import {Container} from "@mui/material";
 
 const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
@@ -33,7 +34,7 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
         component="a"
         href="/"
         title="theFront"
-        width={{xs: 100, md: 150}}
+        width={{xs: 170, md: 170}}
       >
         <Box
           component={'img'}
@@ -72,18 +73,6 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
         {/*    Team*/}
         {/*  </Link>*/}
         {/*</Box>*/}
-        <Box sx={{display: "flex", marginBottom: "-8px"}}>
-          <Box mr={2} sx={{alignSelf: "center"}}>
-            <a href={"https://twitter.com/Hollycat_box"} target={"_blank"}>
-              <img style={{height: "28px"}} src={"/twitter_logo.png"}/>
-            </a>
-          </Box>
-          <Box sx={{alignSelf: "center"}}>
-            <a href={"https://discord.gg/HezwYHvece"} target={"_blank"}>
-              <img style={{height: "32px"}} src={"/discord.png"}/>
-            </a>
-          </Box>
-        </Box>
       </Box>
       <Box sx={{display: {xs: 'none', md: 'none'}}} alignItems={'center'}>
         <Button
