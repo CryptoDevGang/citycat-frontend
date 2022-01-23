@@ -59,7 +59,7 @@ const WebBasic = () => {
                 </Box>
               </Box>
               <Box mt={2}>
-                <Typography sx={{fontSize: "12px"}} color={"white"}>City Cats 2022.</Typography>
+                <Typography sx={{fontSize: "11px"}} color={"white"}>Copyright © 2022 City Cats.</Typography>
               </Box>
             </Box> :
             <></>}
