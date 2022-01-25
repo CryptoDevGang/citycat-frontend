@@ -1,25 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import {alpha, useTheme} from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import Link from '@mui/material/Link';
+import {useTheme} from '@mui/material/styles';
+import Hamburger from 'hamburger-react'
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-import {NavItem} from './components';
-import {Container} from "@mui/material";
-
-const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
+const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
   const {mode} = theme.palette;
-  const {
-    landings: landingPages,
-    secondary: secondaryPages,
-    company: companyPages,
-    account: accountPages,
-    portfolio: portfolioPages,
-    blog: blogPages,
-  } = pages;
+  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
 
   return (
     <Box
@@ -27,7 +18,7 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
       justifyContent={'space-between'}
       alignItems={'center'}
       width={1}
-      sx={{background: "#3E27AF", padding: "10px 40px"}}
+      sx={{background: "#3E27AF", padding: isMd ? "5px 80px" : "10px 20px"}}
     >
       <Box
         display={'flex'}
@@ -47,47 +38,8 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
           width={1}
         />
       </Box>
-      <Box sx={{display: {xs: 'flex', md: 'flex'}}} alignItems={'center'}>
-        {/*<Box>*/}
-        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
-        {/*    Home*/}
-        {/*  </Link>*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
-        {/*    About*/}
-        {/*  </Link>*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
-        {/*    Roadmap*/}
-        {/*  </Link>*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
-        {/*    Community*/}
-        {/*  </Link>*/}
-        {/*</Box>*/}
-        {/*<Box marginLeft={4}>*/}
-        {/*  <Link color={'white'} href={'#'} underline={'none'}>*/}
-        {/*    Team*/}
-        {/*  </Link>*/}
-        {/*</Box>*/}
-      </Box>
-      <Box sx={{display: {xs: 'none', md: 'none'}}} alignItems={'center'}>
-        <Button
-          onClick={() => onSidebarOpen()}
-          aria-label="Menu"
-          variant={'outlined'}
-          sx={{
-            borderRadius: 2,
-            minWidth: 'auto',
-            padding: 1,
-            borderColor: alpha(theme.palette.divider, 0.2),
-          }}
-        >
-          <MenuIcon/>
-        </Button>
+      <Box alignItems={'center'}>
+        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} size={isMd ? 35 : 25}/>
       </Box>
     </Box>
   );

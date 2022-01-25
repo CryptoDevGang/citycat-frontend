@@ -30,7 +30,7 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
     setOpenSidebar(false);
   };
 
-  const open = isMd ? false : openSidebar;
+  const open = openSidebar;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -59,6 +59,7 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
       >
         <Container>
           <Topbar
+            openSidebar={openSidebar}
             onSidebarOpen={handleSidebarOpen}
             pages={pages}
             colorInvert={trigger ? false : colorInvert}

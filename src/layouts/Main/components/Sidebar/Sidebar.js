@@ -3,25 +3,31 @@ import PropTypes from 'prop-types';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import { SidebarNav } from './components';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {useTheme} from "@mui/material/styles";
 
 const Sidebar = ({ pages, open, variant, onClose }) => {
+  const theme = useTheme();
+  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
+
   return (
     <Drawer
-      anchor="left"
+      anchor="right"
       onClose={() => onClose()}
       open={open}
       variant={variant}
       sx={{
         '& .MuiPaper-root': {
           width: '100%',
-          maxWidth: 280,
+          maxWidth: isMd ? 460 : 280,
         },
       }}
     >
       <Box
         sx={{
           height: '100%',
-          padding: 1,
         }}
       >
         <SidebarNav pages={pages} />
