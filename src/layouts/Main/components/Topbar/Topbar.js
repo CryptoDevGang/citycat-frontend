@@ -34,7 +34,7 @@ const Topbar = ({onSidebarOpen, pages, colorInvert = false}) => {
         component="a"
         href="/"
         title="theFront"
-        width={{xs: 170, md: 170}}
+        width={{xs: 140, md: 170}}
       >
         <Box
           component={'img'}
