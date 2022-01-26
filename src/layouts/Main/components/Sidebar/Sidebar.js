@@ -21,7 +21,7 @@ const Sidebar = ({pages, open, variant, onClose}) => {
       variant={variant}
       sx={{
         '& .MuiPaper-root': {
-          marginTop: "75px",
+          marginTop: isMd ? "75px" : "88px",
           width: '100%',
           maxWidth: isMd ? 1800 : 500,
           background: "none",
