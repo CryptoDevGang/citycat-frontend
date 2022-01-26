@@ -39,7 +39,7 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
         />
       </Box>
       <Box alignItems={'center'}>
-        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} size={isMd ? 35 : 25}/>
+        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 40 : 30} rounded hideOutline={true}/>
       </Box>
     </Box>
   );
