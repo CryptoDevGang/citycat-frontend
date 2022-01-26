@@ -23,7 +23,7 @@ const SidebarNav = ({pages}) => {
   return (
     <Box>
       <Grid container sx={{background: "#dedede"}}>
-        <Grid item md={3}>
+        <Grid item xs={12} md={3}>
           <Box sx={{background: "#000000", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h6"} color={"white"} fontWeight={"bold"}>
               CityCats
@@ -46,7 +46,7 @@ const SidebarNav = ({pages}) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item md={3}>
+        <Grid item xs={12} md={3}>
           <Box sx={{background: "#000000", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h6"} color={"white"} fontWeight={"bold"}>
               Community
@@ -86,7 +86,7 @@ const SidebarNav = ({pages}) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item md={3}>
+        <Grid item xs={12} md={3}>
           <Box sx={{background: "#000000", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h6"} color={"white"} fontWeight={"bold"}>
               RoadMap
@@ -109,7 +109,7 @@ const SidebarNav = ({pages}) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item md={3}>
+        <Grid item xs={12} md={3}>
           <Box sx={{background: "#000000", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h6"} color={"white"} fontWeight={"bold"}>
               About

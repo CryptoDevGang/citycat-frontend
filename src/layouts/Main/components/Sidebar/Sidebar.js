@@ -15,7 +15,7 @@ const Sidebar = ({pages, open, variant, onClose}) => {
 
   return (
     <Drawer
-      anchor="top"
+      anchor= "top"
       onClose={() => onClose()}
       open={open}
       variant={variant}
@@ -23,13 +23,13 @@ const Sidebar = ({pages, open, variant, onClose}) => {
         '& .MuiPaper-root': {
           marginTop: "75px",
           width: '100%',
-          maxWidth: isMd ? 1800 : 280,
+          maxWidth: isMd ? 1800 : 500,
           background: "none",
           boxShadow: "none"
         },
       }}
     >
-      <Container maxWidth={"xl"}>
+      <Container maxWidth={"xl"} sx={{padding: isMd? "0px 16px" : "0px 0px"}}>
         <Box
           sx={{
             height: '100%',
