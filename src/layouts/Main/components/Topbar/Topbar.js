@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import {useTheme} from '@mui/material/styles';
 import Hamburger from 'hamburger-react'
 import useMediaQuery from "@mui/material/useMediaQuery";
+import {Container} from "@mui/material";
 
 const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
@@ -14,12 +15,15 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
 
   return (
     <Box
-      display={'flex'}
-      justifyContent={'space-between'}
-      alignItems={'center'}
-      width={1}
-      sx={{background: "#3E27AF", padding: isMd ? "5px 80px" : "10px 20px"}}
+      sx={{zIndex: -2, background: "#3E27AF", padding: isMd ? "5px 80px" : "10px 20px"}}
     >
+      <Container maxWidth={"xl"}>
+        <Box
+          display={'flex'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+          sx={{height: "70px", maxHeight: "70px", background: "#3E27AF", padding: isMd ? "5px 60px" : "5px 0px"}}
+        >
       <Box
         display={'flex'}
         component="a"
@@ -39,8 +43,11 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
         />
       </Box>
       <Box alignItems={'center'}>
-        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 40 : 30} rounded hideOutline={true}/>
+        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
+                   hideOutline={true}/>
       </Box>
+        </Box>
+      </Container>
     </Box>
   );
 };

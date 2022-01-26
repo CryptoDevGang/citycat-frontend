@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import { SidebarNav } from './components';
+import {SidebarNav} from './components';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {useTheme} from "@mui/material/styles";
+import {Container} from "@mui/material";
 
-const Sidebar = ({ pages, open, variant, onClose }) => {
+const Sidebar = ({pages, open, variant, onClose}) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -14,24 +15,33 @@ const Sidebar = ({ pages, open, variant, onClose }) => {
 
   return (
     <Drawer
-      anchor="right"
+      anchor="top"
       onClose={() => onClose()}
       open={open}
       variant={variant}
       sx={{
         '& .MuiPaper-root': {
+          marginTop: "75px",
           width: '100%',
-          maxWidth: isMd ? 460 : 280,
+          maxWidth: isMd ? 1800 : 280,
+          background: "none",
+          boxShadow: "none"
         },
       }}
     >
-      <Box
-        sx={{
-          height: '100%',
-        }}
-      >
-        <SidebarNav pages={pages} />
-      </Box>
+      <Container maxWidth={"xl"}>
+        <Box
+          sx={{
+            height: '100%',
+            borderBottom: "15px solid #3E27AF",
+            borderRight: "15px solid #3E27AF",
+            borderLeft: "15px solid #3E27AF",
+            borderRadius: "10px"
+          }}
+        >
+          <SidebarNav pages={pages}/>
+        </Box>
+      </Container>
     </Drawer>
   );
 };

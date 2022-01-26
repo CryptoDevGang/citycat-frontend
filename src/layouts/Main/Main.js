@@ -22,10 +22,6 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
 
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  const handleSidebarOpen = () => {
-    setOpenSidebar(true);
-  };
-
   const handleSidebarClose = () => {
     setOpenSidebar(false);
   };
@@ -44,15 +40,11 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
 
   return (
     <Box>
-      <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'!important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert}/>
-        </Container>
-      </Box>
       <AppBar
         position={'sticky'}
         sx={{
           top: 0,
+          zIndex: 2000,
           backgroundColor: trigger ? theme.palette.background.paper : bgcolor,
         }}
         elevation={trigger ? 1 : 0}
@@ -60,20 +52,21 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
         <Container>
           <Topbar
             openSidebar={openSidebar}
-            onSidebarOpen={handleSidebarOpen}
+            onSidebarOpen={setOpenSidebar}
             pages={pages}
             colorInvert={trigger ? false : colorInvert}
           />
         </Container>
       </AppBar>
-      <Sidebar
-        onClose={handleSidebarClose}
-        open={open}
-        variant="temporary"
-        pages={pages}
-      />
+
       <main>
         {children}
+        <Sidebar
+          onClose={handleSidebarClose}
+          open={open}
+          variant="temporary"
+          pages={pages}
+        />
         <Divider/>
       </main>
     </Box>
