@@ -15,7 +15,7 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
 
   return (
     <Box
-      sx={{zIndex: -2, background: "#3E27AF", padding: isMd ? "5px 80px" : "10px 20px"}}
+      sx={{zIndex: -2, background: "#3E27AF", padding: isMd ? "0px 80px" : "0px 20px"}}
     >
       <Container maxWidth={"xl"}>
         <Box
