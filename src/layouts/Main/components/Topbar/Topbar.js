@@ -24,28 +24,31 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
           alignItems={'center'}
           sx={{height: "70px", maxHeight: "70px", background: "#3E27AF", padding: isMd ? "5px 60px" : "5px 0px"}}
         >
-      <Box
-        display={'flex'}
-        component="a"
-        href="/"
-        title="theFront"
-        width={{xs: 140, md: 170}}
-      >
-        <Box
-          component={'img'}
-          src={
-            mode === 'light' && !colorInvert
-              ? '/city_cats_logo.svg'
-              : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
-          }
-          height={1}
-          width={1}
-        />
-      </Box>
-      <Box alignItems={'center'}>
-        <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
-                   hideOutline={true}/>
-      </Box>
+          <Box
+            display={'flex'}
+            component="a"
+            href="/"
+            title="theFront"
+            width={{xs: 140, md: 170}}
+          >
+            <Box
+              component={'img'}
+              src={
+                mode === 'light' && !colorInvert
+                  ? '/city_cats_logo.svg'
+                  : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
+              }
+              height={1}
+              width={1}
+            />
+          </Box>
+          {window.location.pathname === '/test' ?
+            <Box alignItems={'center'}>
+              <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
+                         hideOutline={true}/>
+            </Box> :
+            <></>}
+
         </Box>
       </Container>
     </Box>

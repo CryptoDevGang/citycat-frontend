@@ -12,6 +12,10 @@ const routes = [
     renderer: (params = {}) => <WebBasicView {...params} />,
   },
   {
+    path: '/test',
+    renderer: (params = {}) => <WebBasicView {...params} />,
+  },
+  {
     path: '/not-found',
     renderer: (params = {}) => <NotFoundView {...params} />,
   },
