@@ -1,0 +1,52 @@
+.multicolor-bar {
+    margin: 20px 20%;
+}
+
+.multicolor-bar .values .value {
+    float: left;
+    text-align: center;
+}
+
+.multicolor-bar .scale .graduation {
+    float: left;
+    text-align: center;
+}
+
+.multicolor-bar .bars .bar {
+    float: left;
+    height: 15px;
+}
+
+.multicolor-bar .bars div.bar:first-of-type {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.multicolor-bar .bars div.bar:last-of-type {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.multicolor-bar .legends {
+    text-align: center;
+}
+
+
+.multicolor-bar .legends .legend {
+    display: inline-block;
+    text-align: center;
+}
+
+.multicolor-bar .legends .legend .dot {
+    font-size: 25px;
+    vertical-align: middle;
+}
+
+.multicolor-bar .legends .legend .label {
+    margin-left: 2px;
+    vertical-align: middle;
+}
+
+.angled-gradient {
+    background: linear-gradient(70deg, blue, pink);
+}
