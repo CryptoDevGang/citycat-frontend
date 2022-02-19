@@ -5,11 +5,16 @@ import {
   NotFound as NotFoundView,
   NotFoundCover as NotFoundCoverView,
 } from 'views';
+import SalePage from "./SalePage";
 
 const routes = [
   {
     path: '/',
     renderer: (params = {}) => <WebBasicView {...params} />,
+  },
+  {
+    path: '/sale',
+    renderer: (params = {}) => <SalePage {...params} />,
   },
   {
     path: '/test',

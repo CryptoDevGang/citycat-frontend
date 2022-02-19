@@ -7,7 +7,7 @@ export const CityBackgroundSvg = (props) => {
     from: {transform: `translateY(-2000px)`},
     to: {transform: `translateY(0px)`},
     delay: 2000,
-    config: {mass:1, tension:150, friction:6, precision: 0}
+    config: {mass:1, tension:150, friction:4, precision: 0}
 
   })
   return (

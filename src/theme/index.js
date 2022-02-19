@@ -9,7 +9,7 @@ const getTheme = (mode, themeToggler) =>
       palette: mode === 'light' ? light : dark,
       shadows: shadows(mode),
       typography: {
-        fontFamily: '"Inter", sans-serif',
+        fontFamily: '"city-cats", "Inter", sans-serif',
         button: {
           textTransform: 'none',
           fontWeight: 'medium',
@@ -27,6 +27,7 @@ const getTheme = (mode, themeToggler) =>
               borderRadius: 5,
               paddingTop: 10,
               paddingBottom: 10,
+              fontFamily: "city-cats"
             },
             containedSecondary: mode === 'light' ? { color: 'white' } : {},
           },

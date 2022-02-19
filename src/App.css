@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "city-cats";
+    src: url("./fonts/citycat_fonts.ttf");
+}
+
+.body{
+    font-family: "city-cats";
+}
