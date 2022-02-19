@@ -38,7 +38,7 @@ const MobileAbout = () => {
       </Typography>
       <Typography sx={{
         position: "absolute",
-        top: "46%",
+        top: "47%",
         left: "45%",
         color: "black",
         maxWidth: "700px",
@@ -48,7 +48,7 @@ const MobileAbout = () => {
         How rare is my cat?
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "47%", left: "45%", color: "black", maxWidth: "700px", fontSize: "0.5rem"}}>
+        sx={{position: "absolute", top: "48%", left: "45%", color: "black", maxWidth: "700px", fontSize: "0.5rem"}}>
         As mentioned earlier, there are only 2,050 city cats for the 1st generation. To evaluate their coolness, it is
         rated in the range from 5 to 13 points. The score is determined by the items your cat has.
         While this score may be important to your ranking in the Marketplace, it will play a crucial role in future
