@@ -7,13 +7,13 @@ const MobileAbout = () => {
     <Box sx={{display: "flex", position: "relative"}}>
       <img style={{width: '100%'}} src={"/about/about.jpeg"}/>
       <Typography
-        sx={{position: "absolute", top: "1%", left: "5%", color: "white", maxWidth: "300px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "1%", left: "5%", color: "white", maxWidth: "300px", fontSize: "0.5rem"}}>
         City Cats is a P2E NFT game that leverages CityCoins and a cute cat character. We believe that P2E can
         incentivize blockchain users and further provide opportunities for wealth. In particular, the fact that
         the game platform makes use of CityCoins will be very attractive to the CityCoiners.
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "8%", left: "45%", color: "white", maxWidth: "700px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "7%", left: "45%", color: "white", maxWidth: "700px", fontSize: "0.5rem"}}>
         We want to present new use cases of Bitcoin by focusing on blockchain games rather than just PFP NFTs. To
         achieve this, we have adopted the Stacks blockchain. Stacks is the most proven Bitcoin-scaling blockchain
         in the market, allowing users to enjoy a stable gaming experience on a very stable environment.
@@ -21,16 +21,16 @@ const MobileAbout = () => {
       <Typography sx={{
         position: "absolute",
         top: "25.5%",
-        left: "35%",
+        left: "45%",
         color: "white",
         maxWidth: "700px",
-        fontSize: "4px",
+        fontSize: "0.5rem",
         fontWeight: "bold"
       }}>
         What are City Cats NFT?
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "26.5%", left: "45%", color: "white", maxWidth: "700px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "26.5%", left: "45%", color: "white", maxWidth: "700px", fontSize: "0.5rem"}}>
         City cat is an NFT based on Stacks blockchain. There are a total of 2,050 first-generation city cats, which are
         composed of unique skin, face, background, hair, and body. Each city cat reflects a strong personality and will
         be the most essential part of the City Cats ecosystem going forward. Don’t miss out on minting your lucky cat
@@ -42,13 +42,13 @@ const MobileAbout = () => {
         left: "45%",
         color: "black",
         maxWidth: "700px",
-        fontSize: "4px",
+        fontSize: "0.5rem",
         fontWeight: "bold"
       }}>
         How rare is my cat?
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "48%", left: "45%", color: "black", maxWidth: "700px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "47%", left: "45%", color: "black", maxWidth: "700px", fontSize: "0.5rem"}}>
         As mentioned earlier, there are only 2,050 city cats for the 1st generation. To evaluate their coolness, it is
         rated in the range from 5 to 13 points. The score is determined by the items your cat has.
         While this score may be important to your ranking in the Marketplace, it will play a crucial role in future
@@ -60,13 +60,13 @@ const MobileAbout = () => {
         left: "3%",
         color: "black",
         maxWidth: "700px",
-        fontSize: "4px",
+        fontSize: "0.5rem",
         fontWeight: "bold"
       }}>
         Why get a City Cat?
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "69%", left: "3%", color: "black", maxWidth: "200px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "68%", left: "3%", color: "black", maxWidth: "200px", fontSize: "0.5rem"}}>
         City cat is different from previous NFT projects and plays a key role in future development and building. Once
         you become a central member of the City Cats community, you can exercise your influence in determining the
         direction of the project. In addition, city cat NFT is essential for future product participation such as token
@@ -75,17 +75,17 @@ const MobileAbout = () => {
       </Typography>
       <Typography sx={{
         position: "absolute",
-        top: "83%",
+        top: "82.5%",
         left: "45%",
         color: "black",
         maxWidth: "700px",
-        fontSize: "4px",
+        fontSize: "0.5rem",
         fontWeight: "bold"
       }}>
         Future of City Cats?
       </Typography>
       <Typography
-        sx={{position: "absolute", top: "85%", left: "45%", color: "black", maxWidth: "700px", fontSize: "4px"}}>
+        sx={{position: "absolute", top: "83.5%", left: "45%", color: "black", maxWidth: "700px", fontSize: "0.5rem"}}>
         Don’t forget that City Cats is more than just an NFT art. We are passionate about building the City Cat
         ecosystem, including future synchronization with the community, utility of city cat, community growth, and
         partnerships! We believe that the growth of City Cats depends entirely on the community. Please join us in our
@@ -106,7 +106,7 @@ const MobileAbout = () => {
             <img style={{width: "20px"}} src={"/about/about_market.png"}/>
           </a>
         </Box>
-        <Typography color={"white"} fontWeight={"bold"} sx={{fontSize: "4px"}}>
+        <Typography color={"white"} fontWeight={"bold"} sx={{fontSize: "0.5rem"}}>
           City Cats
         </Typography>
       </Box>
