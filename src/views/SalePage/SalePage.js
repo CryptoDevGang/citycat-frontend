@@ -31,7 +31,7 @@ const SalePage = () => {
                 backgroundSize: "100% 100%",
                 backgroundRepeat: "no-repeat",
                 padding: width870? "0px 0px" : "10px 20px",
-                fontSize: width870? "4px" : "25px",
+                fontSize: width870? "0.5rem" : "25px",
                 fontWeight: "bold",
                 minWidth: "15%",
                 color: "white"
