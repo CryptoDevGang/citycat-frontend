@@ -6,6 +6,7 @@ import Container from 'components/Container';
 import {ReactComponent as ComingSoonBackground} from '../../assets/coming-soon.svg';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import {MINT_PROGRESS_DEFAULT_PROP, MintProgress} from "../../components/MintProgress";
 
 const WebBasic = () => {
   const theme = useTheme();
@@ -22,6 +23,9 @@ const WebBasic = () => {
         }}
       >
         <Container>
+            {/*<Box sx={{ width: "100%", height: "200px", textAlign: "center"}}>*/}
+            {/*    <MintProgress readings={MINT_PROGRESS_DEFAULT_PROP}/>*/}
+            {/*</Box>*/}
           {/*<img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>*/}
           <ComingSoonBackground />
           {width870 ?
