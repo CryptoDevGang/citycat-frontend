@@ -24,8 +24,8 @@ const WebBasic = () => {
       >
         <Container>
           {/*<img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>*/}
-          {/*<ComingSoonBackground />*/}
-          <CityBackgroundSvg/>
+          <ComingSoonBackground />
+          {/*<CityBackgroundSvg/>*/}
           {width870 ?
             <Box sx={{height: "500px", background: "#222222", textAlign: "center"}}>
               <Box>
