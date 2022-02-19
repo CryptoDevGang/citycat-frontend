@@ -6,7 +6,7 @@ import Container from 'components/Container';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import {Typography} from "@mui/material";
-import {About} from "../About/components";
+import {About, MobileAbout} from "../About/components";
 
 const SalePage = () => {
   const theme = useTheme();
@@ -22,7 +22,7 @@ const SalePage = () => {
           paddingTop: 13,
         }}
       >
-        <Container >
+        <Container>
           <Box sx={{display: "flex", position: "relative"}}>
             <img style={{width: '100%'}} src={"/sale_background.jpeg"}/>
             <Box sx={{width: "100%", position: "absolute", bottom: "20%", right: "auto", textAlign: "center"}}>
@@ -30,7 +30,8 @@ const SalePage = () => {
                 backgroundImage: "url('/button_background_purple.png')",
                 backgroundSize: "100% 100%",
                 backgroundRepeat: "no-repeat",
-                fontSize: "25px",
+                padding: width870? "0px 0px" : "10px 20px",
+                fontSize: width870? "4px" : "25px",
                 fontWeight: "bold",
                 minWidth: "15%",
                 color: "white"
@@ -39,7 +40,12 @@ const SalePage = () => {
               </Button>
             </Box>
           </Box>
-          <About/>
+          {
+            width870 ? <MobileAbout/>
+              :
+              <About/>
+          }
+
         </Container>
       </Box>
     </Main>
