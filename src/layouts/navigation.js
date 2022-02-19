@@ -91,7 +91,7 @@ const pages = {
       href: '/hire-us',
     },
     {
-      title: 'About: Startup',
+      title: 'AboutPage: Startup',
       href: '/about-side-cover',
     },
     {
