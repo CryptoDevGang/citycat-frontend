@@ -66,7 +66,7 @@ const About = (props) => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "66%",
+              top: "65%",
               left: "45%",
               color: "black",
               maxWidth: "700px",
@@ -76,7 +76,7 @@ const About = (props) => {
               Why get a City Cat?
             </Typography>
             <Typography
-              sx={{position: "absolute", top: "68%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
+              sx={{position: "absolute", top: "67%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
               City cat is different from previous NFT projects and plays a key role in future development and building.
               Once
               you become a central member of the City Cats community, you can exercise your influence in determining the

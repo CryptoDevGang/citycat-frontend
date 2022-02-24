@@ -32,7 +32,7 @@ const MobileAbout = (props) => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "22%",
+              top: "21%",
               left: "5%",
               color: "white",
               fontSize: "1rem",
@@ -43,7 +43,7 @@ const MobileAbout = (props) => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "23.5%",
+                top: "22.5%",
                 left: "5%",
                 right: "5%",
                 color: "white",
