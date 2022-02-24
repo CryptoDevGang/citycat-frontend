@@ -15,7 +15,7 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
 
   return (
     <Box
-      sx={{zIndex: -2, background: "#3E27AF", padding: isMd ? "0px 80px" : "0px 20px"}}
+      sx={{zIndex: -2, background: "#3E27AF", padding: isMd ? "0px 80px" : "0px 10px"}}
     >
       <Container maxWidth={"xl"}>
         <Box
@@ -28,8 +28,8 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
             display={'flex'}
             component="a"
             href="/"
-            title="theFront"
-            width={{xs: 140, md: 170}}
+            title="cityCats"
+            width={{xs: 120, md: 170}}
           >
             <Box
               component={'img'}

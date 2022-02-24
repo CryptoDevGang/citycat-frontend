@@ -21,7 +21,7 @@ const Topbar = ({ onSidebarOpen }) => {
         display={'flex'}
         component="a"
         href="/"
-        title="theFront"
+        title="cityCats"
         width={{ xs: 100, md: 120 }}
       >
         <Box
