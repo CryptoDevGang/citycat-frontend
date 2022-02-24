@@ -5,14 +5,21 @@ import Divider from '@mui/material/Divider';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
 import {
-  About
+  About, MobileAbout
 } from './components';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const AboutPage = () => {
+  const width870 = useMediaQuery('(max-width:870px)');
+
   return (
-    <Main colorInvert={true}>
-      <Container maxWidth={800} paddingTop={'0 !important'}>
-        <About />
+    <Main>
+      <Container>
+        {
+          width870 ? <MobileAbout isSale={false}/>
+            :
+            <About isSale={false}/>
+        }
       </Container>
     </Main>
   );

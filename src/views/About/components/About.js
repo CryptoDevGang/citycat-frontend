@@ -2,12 +2,12 @@ import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import React, {useState} from "react";
 
-const About = () => {
+const About = (props) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <Box sx={{display: "flex", position: "relative"}}>
-      <img style={{width: '100%'}} src={"/about/about.jpeg"} onLoad={() => setLoaded(true)}/>
+    <Box sx={{display: "flex", position: "relative", marginTop: props.isSale? "0px" : "-40%"}}>
+      <img style={{width: '100%'}} src={"/about/about_citycat_pc.jpeg"} onLoad={() => setLoaded(true)}/>
       {
         loaded ?
           <>
@@ -18,14 +18,14 @@ const About = () => {
               the game platform makes use of CityCoins will be very attractive to the CityCoiners.
             </Typography>
             <Typography
-              sx={{position: "absolute", top: "5%", left: "25%", color: "white", maxWidth: "700px", fontSize: "24px"}}>
+              sx={{position: "absolute", top: "5%", left: "45%", color: "white", maxWidth: "700px", fontSize: "24px"}}>
               We want to present new use cases of Bitcoin by focusing on blockchain games rather than just PFP NFTs. To
               achieve this, we have adopted the Stacks blockchain. Stacks is the most proven Bitcoin-scaling blockchain
               in the market, allowing users to enjoy a stable gaming experience on a very stable environment.
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "26%",
+              top: "25%",
               left: "45%",
               color: "white",
               maxWidth: "700px",
@@ -35,7 +35,7 @@ const About = () => {
               What are City Cats NFT?
             </Typography>
             <Typography
-              sx={{position: "absolute", top: "28%", left: "45%", color: "white", maxWidth: "700px", fontSize: "24px"}}>
+              sx={{position: "absolute", top: "27%", left: "45%", color: "white", maxWidth: "700px", fontSize: "24px"}}>
               City cat is an NFT based on Stacks blockchain. There are a total of 2,050 first-generation city cats,
               which are
               composed of unique skin, face, background, hair, and body. Each city cat reflects a strong personality and
@@ -46,7 +46,7 @@ const About = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "46%",
+              top: "45%",
               left: "45%",
               color: "black",
               maxWidth: "700px",
@@ -56,7 +56,7 @@ const About = () => {
               How rare is my cat?
             </Typography>
             <Typography
-              sx={{position: "absolute", top: "48%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
+              sx={{position: "absolute", top: "47%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
               As mentioned earlier, there are only 2,050 city cats for the 1st generation. To evaluate their coolness,
               it is
               rated in the range from 5 to 13 points. The score is determined by the items your cat has.
@@ -66,7 +66,7 @@ const About = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "67%",
+              top: "66%",
               left: "45%",
               color: "black",
               maxWidth: "700px",
@@ -76,7 +76,7 @@ const About = () => {
               Why get a City Cat?
             </Typography>
             <Typography
-              sx={{position: "absolute", top: "69%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
+              sx={{position: "absolute", top: "68%", left: "45%", color: "black", maxWidth: "700px", fontSize: "24px"}}>
               City cat is different from previous NFT projects and plays a key role in future development and building.
               Once
               you become a central member of the City Cats community, you can exercise your influence in determining the
@@ -106,7 +106,7 @@ const About = () => {
             </Typography>
             <Box sx={{width: "100%", position: "absolute", bottom: "1.3%", right: "auto", textAlign: "center"}}>
               <Box>
-                <img style={{width: "70px"}} src={"/about/about_citycat.png"}/>
+                <img style={{width: "70px"}} src={"/about/about_citycat_logo.png"}/>
               </Box>
               <Box mt={-1}>
                 <a style={{marginRight: "10px"}} href={"https://discord.gg/4cjJkfyG4V"}>

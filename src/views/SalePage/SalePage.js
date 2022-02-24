@@ -5,7 +5,6 @@ import Main from 'layouts/Main';
 import Container from 'components/Container';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
-import {Typography} from "@mui/material";
 import {About, MobileAbout} from "../About/components";
 
 const SalePage = () => {
@@ -41,9 +40,9 @@ const SalePage = () => {
             </Box>
           </Box>
           {
-            width870 ? <MobileAbout/>
+            width870 ? <MobileAbout isSale={true}/>
               :
-              <About/>
+              <About isSale={true}/>
           }
 
         </Container>

@@ -6,6 +6,7 @@ import {
   NotFoundCover as NotFoundCoverView,
 } from 'views';
 import SalePage from "./SalePage";
+import AboutPage from "./About";
 
 const routes = [
   {
@@ -15,6 +16,10 @@ const routes = [
   {
     path: '/sale',
     renderer: (params = {}) => <SalePage {...params} />,
+  },
+  {
+    path: '/about',
+    renderer: (params = {}) => <AboutPage {...params} />,
   },
   {
     path: '/test',

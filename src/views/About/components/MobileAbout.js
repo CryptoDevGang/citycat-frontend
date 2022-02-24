@@ -2,17 +2,17 @@ import {Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import React, {useState} from "react";
 
-const MobileAbout = () => {
+const MobileAbout = (props) => {
   const [loaded, setLoaded] = useState(false)
 
   return (
-    <Box sx={{display: "flex", position: "relative"}}>
-      <img style={{width: '100%'}} src={"/about/about.jpeg"} onLoad={() => setLoaded(true)}/>
+    <Box sx={{display: "flex", position: "relative", marginTop: props.isSale? "0px" : "-60%"}}>
+      <img style={{width: '100%'}} src={"/about/about_citycat_mo.jpeg"} onLoad={() => setLoaded(true)}/>
       {
         loaded ?
           <>
             <Typography
-              sx={{position: "absolute", top: "1%", left: "5%", color: "white", maxWidth: "300px", fontSize: "0.5rem"}}>
+              sx={{position: "absolute", top: "1%", left: "5%", color: "white", fontSize: "0.8rem"}}>
               City Cats is a P2E NFT game that leverages CityCoins and a cute cat character. We believe that P2E can
               incentivize blockchain users and further provide opportunities for wealth. In particular, the fact that
               the game platform makes use of CityCoins will be very attractive to the CityCoiners.
@@ -20,11 +20,11 @@ const MobileAbout = () => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "7%",
-                left: "45%",
+                top: "6%",
+                left: "5%",
                 color: "white",
                 maxWidth: "700px",
-                fontSize: "0.5rem"
+                fontSize: "0.8rem"
               }}>
               We want to present new use cases of Bitcoin by focusing on blockchain games rather than just PFP NFTs. To
               achieve this, we have adopted the Stacks blockchain. Stacks is the most proven Bitcoin-scaling blockchain
@@ -32,11 +32,10 @@ const MobileAbout = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "25.5%",
-              left: "45%",
+              top: "22%",
+              left: "5%",
               color: "white",
-              maxWidth: "700px",
-              fontSize: "0.5rem",
+              fontSize: "1rem",
               fontWeight: "bold"
             }}>
               What are City Cats NFT?
@@ -44,11 +43,12 @@ const MobileAbout = () => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "26.5%",
-                left: "45%",
+                top: "23.5%",
+                left: "5%",
+                right: "5%",
                 color: "white",
                 maxWidth: "700px",
-                fontSize: "0.5rem"
+                fontSize: "0.8rem"
               }}>
               City cat is an NFT based on Stacks blockchain. There are a total of 2,050 first-generation city cats,
               which
@@ -61,11 +61,11 @@ const MobileAbout = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "47%",
-              left: "45%",
+              top: "43%",
+              left: "5%",
               color: "black",
               maxWidth: "700px",
-              fontSize: "0.5rem",
+              fontSize: "1rem",
               fontWeight: "bold"
             }}>
               How rare is my cat?
@@ -73,11 +73,12 @@ const MobileAbout = () => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "48%",
-                left: "45%",
+                top: "44.5%",
+                left: "5%",
+                right: "5%",
                 color: "black",
                 maxWidth: "700px",
-                fontSize: "0.5rem"
+                fontSize: "0.8rem"
               }}>
               As mentioned earlier, there are only 2,050 city cats for the 1st generation. To evaluate their coolness,
               it
@@ -89,11 +90,11 @@ const MobileAbout = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "67%",
-              left: "3%",
+              top: "61%",
+              left: "5%",
               color: "black",
               maxWidth: "700px",
-              fontSize: "0.5rem",
+              fontSize: "1rem",
               fontWeight: "bold"
             }}>
               Why get a City Cat?
@@ -101,11 +102,11 @@ const MobileAbout = () => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "68%",
-                left: "3%",
+                top: "63%",
+                left: "5%",
+                right: "5%",
                 color: "black",
-                maxWidth: "200px",
-                fontSize: "0.5rem"
+                fontSize: "0.8rem"
               }}>
               City cat is different from previous NFT projects and plays a key role in future development and building.
               Once
@@ -117,11 +118,11 @@ const MobileAbout = () => {
             </Typography>
             <Typography sx={{
               position: "absolute",
-              top: "82.5%",
-              left: "45%",
+              top: "81%",
+              left: "5%",
               color: "black",
               maxWidth: "700px",
-              fontSize: "0.5rem",
+              fontSize: "1rem",
               fontWeight: "bold"
             }}>
               Future of City Cats?
@@ -129,11 +130,12 @@ const MobileAbout = () => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "83.5%",
-                left: "45%",
+                top: "82.5%",
+                left: "5%",
+                right: "5%",
                 color: "black",
                 maxWidth: "700px",
-                fontSize: "0.5rem"
+                fontSize: "0.8rem"
               }}>
               Don’t forget that City Cats is more than just an NFT art. We are passionate about building the City Cat
               ecosystem, including future synchronization with the community, utility of city cat, community growth, and
@@ -143,7 +145,7 @@ const MobileAbout = () => {
             </Typography>
             <Box sx={{width: "100%", position: "absolute", bottom: "1.3%", right: "auto", textAlign: "center"}}>
               <Box>
-                <img style={{width: "20px"}} src={"/about/about_citycat.png"}/>
+                <img style={{width: "20px"}} src={"/about/about_citycat_logo.png"}/>
               </Box>
               <Box mt={-1}>
                 <a style={{marginRight: "10px"}} href={"https://discord.gg/4cjJkfyG4V"}>
