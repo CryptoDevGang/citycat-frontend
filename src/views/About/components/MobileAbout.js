@@ -12,7 +12,7 @@ const MobileAbout = (props) => {
         loaded ?
           <>
             <Typography
-              sx={{position: "absolute", top: "1%", left: "5%", color: "white", fontSize: "0.8rem"}}>
+              sx={{position: "absolute", top: "0.3%", left: "5%", color: "white", fontSize: "0.8rem"}}>
               City Cats is a P2E NFT game that leverages CityCoins and a cute cat character. We believe that P2E can
               incentivize blockchain users and further provide opportunities for wealth. In particular, the fact that
               the game platform makes use of CityCoins will be very attractive to the CityCoiners.
@@ -20,7 +20,7 @@ const MobileAbout = (props) => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "6%",
+                top: "5%",
                 left: "5%",
                 color: "white",
                 maxWidth: "700px",
