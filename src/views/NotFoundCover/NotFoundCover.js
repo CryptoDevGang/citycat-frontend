@@ -45,7 +45,7 @@ const NotFoundCover = () => {
                     align={isMd ? 'left' : 'center'}
                     sx={{ fontWeight: 700 }}
                   >
-                    404
+                    Where???
                   </Typography>
                   <Typography
                     variant="h6"
@@ -53,12 +53,8 @@ const NotFoundCover = () => {
                     color="text.secondary"
                     align={isMd ? 'left' : 'center'}
                   >
-                    Oops! Looks like you followed a bad link.
+                    Oops! back to the CityCats world
                     <br />
-                    If you think this is a problem with us, please{' '}
-                    <Link href={''} underline="none">
-                      tell us
-                    </Link>
                   </Typography>
                   <Box
                     marginTop={4}
@@ -72,7 +68,7 @@ const NotFoundCover = () => {
                       size="large"
                       href={'/'}
                     >
-                      Back home
+                      Back to Worlds
                     </Button>
                   </Box>
                 </Box>
@@ -133,11 +129,11 @@ const NotFoundCover = () => {
                       <Box
                         component={LazyLoadImage}
                         effect="blur"
-                        src={
-                          'https://assets.maccarianagency.com/backgrounds/img23.jpg'
-                        }
                         height={{ xs: 'auto', md: 1 }}
                         maxHeight={{ xs: 300, md: 1 }}
+                        src={
+                          '/sale_background.jpeg'
+                        }
                         width={1}
                         maxWidth={1}
                         sx={{
