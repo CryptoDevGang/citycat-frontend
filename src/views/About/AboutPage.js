@@ -8,8 +8,10 @@ import {
   About, MobileAbout
 } from './components';
 import useMediaQuery from "@mui/material/useMediaQuery";
+import {useTheme} from "@mui/material/styles";
 
 const AboutPage = () => {
+  const theme = useTheme();
   const width870 = useMediaQuery('(max-width:870px)');
 
   return (

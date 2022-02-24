@@ -18,7 +18,7 @@ const routes = [
     renderer: (params = {}) => <SalePage {...params} />,
   },
   {
-    path: '/about',
+    path: '/abouts',
     renderer: (params = {}) => <AboutPage {...params} />,
   },
   {

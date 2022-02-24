@@ -45,7 +45,7 @@ const NotFoundCover = () => {
                     align={isMd ? 'left' : 'center'}
                     sx={{ fontWeight: 700 }}
                   >
-                    Where???
+                    Where am I???
                   </Typography>
                   <Typography
                     variant="h6"
