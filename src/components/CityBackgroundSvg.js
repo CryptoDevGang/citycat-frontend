@@ -1,7 +1,10 @@
 import {animated, useSpring, to, config} from 'react-spring'
 import {useRef, useState} from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Box from "@mui/material/Box";
 
 export const CityBackgroundSvg = (props) => {
+  const width870 = useMediaQuery('(max-width:870px)');
   const springRef = useRef();
   const transform = useSpring({
     from: {transform: `translateY(-2000px)`},
@@ -19,7 +22,7 @@ export const CityBackgroundSvg = (props) => {
   const [isActiveSquare, setActiveSquare] = useState(false)
 
   return (
-    <>
+    <Box mt={width870 ? 0 : -15}>
       <svg
         id="\uB808\uC774\uC5B4_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -6151,6 +6154,6 @@ export const CityBackgroundSvg = (props) => {
           />
         </g>
       </svg>
-    </>
+    </Box>
   )
 }
