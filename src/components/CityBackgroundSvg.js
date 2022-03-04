@@ -17,7 +17,7 @@ export const CityBackgroundSvg = (props) => {
   const photoTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 1300,
+    delay: 900,
     config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
@@ -31,28 +31,28 @@ export const CityBackgroundSvg = (props) => {
   const shopTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 1000,
+    delay: 600,
     config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
   const marketTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 1100,
+    delay: 400,
     config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
   const busTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 800,
+    delay: 700,
     config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
   const squareTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 400,
+    delay: 300,
     config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
