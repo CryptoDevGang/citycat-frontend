@@ -23,7 +23,7 @@ const WebBasic = () => {
           paddingTop: 13,
         }}
       >
-        <Container sx={{backgroundColor: "#222222"}}>
+        <Container sx={{backgroundColor: "#222222", minHeight: "100vh"}}>
           {/*<img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>*/}
           {window.location.pathname === '/test' ?
               <CityBackgroundSvg/>
