@@ -23,7 +23,7 @@ const Sidebar = ({pages, open, variant, onClose}) => {
         '& .MuiPaper-root': {
           marginTop: isMd ? "68px" : "65px",
           width: '100%',
-          maxWidth: isMd ? 1800 : 500,
+          maxWidth: isMd ? '100%' : 500,
           background: "none",
           boxShadow: "none"
         },
@@ -33,10 +33,10 @@ const Sidebar = ({pages, open, variant, onClose}) => {
         <Box
           sx={{
             height: '100%',
-            borderBottom: "15px solid #3E27AF",
-            borderRight: "15px solid #3E27AF",
-            borderLeft: "15px solid #3E27AF",
-            borderRadius: "10px"
+            borderBottom: "13px solid #3E27AF",
+            borderRight: "13px solid #3E27AF",
+            borderLeft: "13px solid #3E27AF",
+            borderRadius: "0px 0px 10px 10px"
           }}
         >
           <SidebarNav pages={pages}/>
