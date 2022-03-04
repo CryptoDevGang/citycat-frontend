@@ -7,7 +7,6 @@ import {ReactComponent as ComingSoonBackground} from '../../assets/coming-soon.s
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import {CityBackgroundSvg} from "../../components/CityBackgroundSvg";
-import {CityBackgroundSvgOn} from "../../components/CityBackgroundSvgOn";
 
 const WebBasic = () => {
   const theme = useTheme();
@@ -18,15 +17,17 @@ const WebBasic = () => {
       <Box
         position={'relative'}
         sx={{
-          backgroundColor: theme.palette.alternate.main,
+          backgroundColor: "#222222",
           marginTop: -13,
           paddingTop: 13,
         }}
       >
-        <Container sx={{backgroundColor: "#222222", minHeight: "100vh"}}>
+        <Container>
           {/*<img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>*/}
           {window.location.pathname === '/test' ?
+            <Box mt={width870? 0 : -15}>
               <CityBackgroundSvg/>
+            </Box>
             : <ComingSoonBackground/>
           }
           {width870 ?

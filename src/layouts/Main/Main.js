@@ -67,7 +67,6 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
           variant="temporary"
           pages={pages}
         />
-        <Divider/>
       </main>
     </Box>
   );

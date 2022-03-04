@@ -6,13 +6,57 @@ import Box from "@mui/material/Box";
 export const CityBackgroundSvg = (props) => {
   const width870 = useMediaQuery('(max-width:870px)');
   const springRef = useRef();
-  const transform = useSpring({
-    from: {transform: `translateY(-2000px)`},
+
+  const postTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
     to: {transform: `translateY(0px)`},
-    delay: 2000,
-    config: {mass:1, tension:150, friction:4, precision: 0}
+    delay: 500,
+    config: {mass:1, tension:100, friction:5, precision: 0}
 
   })
+  const photoTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 1300,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+  const buildingTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 250,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+  const shopTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 1000,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+  const marketTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 1100,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+  const busTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 800,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+  const squareTransform = useSpring({
+    from: {transform: `translateY(-1000px)`},
+    to: {transform: `translateY(0px)`},
+    delay: 400,
+    config: {mass:1, tension:100, friction:5, precision: 0}
+
+  })
+
   const [isActivePostOffice, setActivePostOffice] = useState(false)
   const [isActivePhotoStudio, setActivePhotoStudio] = useState(false)
   const [isActiveBuilding, setActiveBuilding] = useState(false)
@@ -22,7 +66,7 @@ export const CityBackgroundSvg = (props) => {
   const [isActiveSquare, setActiveSquare] = useState(false)
 
   return (
-    <Box mt={width870 ? 0 : -15}>
+    <>
       <svg
         id="\uB808\uC774\uC5B4_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -67,12 +111,12 @@ export const CityBackgroundSvg = (props) => {
               enableBackground: "new",
             }}
             width={9029}
-            height={5488}
+            height={5588}
             xlinkHref="/173998E4B9A74023.png"
             transform="translate(-64.183 -160.065) scale(.2399)"
           />
           <g id="main_x5F_off">
-            <g id="post_office_x5F_off" onMouseEnter={()=>setActivePostOffice(true)} style={{display: isActivePostOffice? "none" : "block"}}>
+            <animated.g id="post_office_x5F_off" onMouseEnter={()=>setActivePostOffice(true)} style={{...postTransform, display: isActivePostOffice? "none" : "block"}}>
               <path
                 className="st1"
                 d="M772.1 441.5v67.2l74.1 27.8 79.2-35.1v-63.3z"
@@ -245,8 +289,8 @@ export const CityBackgroundSvg = (props) => {
                 d="M784.6 431.8c-.2.2 0 .5.2.4.8-.2 1.8-.4 2-.5.1 0 .5-.5.2-1.1 0 0 0-.1-.1-.1-.3-.4-.8-.3-1.2 0-.2.5-.7 1-1.1 1.3z"
               />
               <path className="st16" d="M787.6 429.2v.8M785.6 429.2v.7" />
-            </g>
-            <g id="photo_studio_x5F_off" onMouseEnter={()=>setActivePhotoStudio(true)} style={{display: isActivePhotoStudio? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="photo_studio_x5F_off" onMouseEnter={()=>setActivePhotoStudio(true)} style={{...photoTransform, display: isActivePhotoStudio? "none" : "block"}}>
               <path
                 className="st20"
                 d="M837.3 664.3c-.5 5.5-4.7 9-12.6 9.3-7.2.3-14-2.9-13.5-10.9.5-7.2 6.7-12.7 13.9-12.2s12.9 6.6 12.2 13.8z"
@@ -415,8 +459,8 @@ export const CityBackgroundSvg = (props) => {
                 className="st22"
                 d="M758.7 585.5c-.7-.9-2.1-1.2-3-.4.6-2.2-2.1-4.5-4.2-3.6-1.2-1.2-1.1-2.8-3.1-2.8-.5 0-1.4.8-1.6 1.2-1.2-1.1-3.4-1.2-4.4.1-1.1 1.3-.3 3.6 1.3 3.8-1.8-.1-3.4 1.7-3 3.5.3 1.7 2.5 2.8 4.1 2.1-1.4 1.1-1 3.5.5 4.4 1.4 1 3.4.7 4.9-.1-.7 1.2.4 2.8 1.8 3.1 1.3.3 2.7-.3 3.9-1 .6.9 1.2 1.8 2.1 2.4.9.6 2.2.8 3 .1.5-.3 1-1 1.6-.8.3.1.4.3.6.6.8 1 2.4 1.2 3.5.5-.1 1.2.6 2.3 1.7 2.7 1.1.4 2.4 0 3.1-.9.3 1.5 1.6 2.8 3.2 3 1.5.2 3.2-.7 3.9-2.1 1.2 1.5 3 2.5 4.8 2.5 1.9 0 3.7-1.3 4.2-3.2.4-1.8-1-4-2.9-4.1.3-1.9-.8-4-2.5-4.8-1.7-.9-4-.4-5.4 1-.6-1.5-2.2-2.5-3.8-2.5s-3.2 1.2-3.7 2.7c0-1.4-1.2-2.8-2.5-2.8-1.4-.1-2.8 1.1-2.9 2.5.7-1-.1-2.4-1.2-2.8-1.1-.3-2.4.1-3.4.6 0-.9-.1-4.3-.6-4.9zM815.2 598.4c-.2 1.5 1.6 2.9 3.1 2.3-1.2 1-.6 3 .9 3.6s3.3-.1 4.3-1.3c1.1 1.1 2.8 1.5 4.4 1.2 1.5-.3 2.9-1.4 3.4-2.8 1.8.7 3.9.8 5.8.3 1-.2 1.9-.7 2.5-1.4s.7-1.8.1-2.5c1.6-.5 2.5-2.4 1.7-3.9-.8-1.4-3.1-1.9-4.5-1-.8-.9-1.9-1.7-3.2-1.8s-2.7.4-3.2 1.5c-1.2-1-3-1.6-4.7-1.2-1.6.4-3 1.9-2.6 3.4-.5-1-1.8-1.5-2.9-1.2-1.6.4-1.2 1.7-2.2 2.5-1 .9-2.6.5-2.9 2.3zM853.4 578.2c-.7-.1-1.5-.1-2.2.3s-1 1.3-.6 1.9c-1.2-.2-2.5.4-3.1 1.5s-.4 2.5.5 3.5c-1 .2-1.4 1.4-1.2 2.4s1.2 1.7 2.1 2.1c1 .4 2.4.4 3.1-.4.7 1.1 2.3 1.5 3.5 1.1s2.2-1.6 2.4-2.9c1.1.5 2.4.2 3.1-.7.7-.9.7-2.3 0-3.2.8-.2 1.1-1.2 1.1-2 0-1.4-.8-2.9-2.1-3.5s-2.8 0-3.5 1.2c-1.1-.6-2-1.1-3.1-1.3z"
               />
-            </g>
-            <g id="building_x5F_off" onMouseEnter={()=>setActiveBuilding(true)} style={{display: isActiveBuilding? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="building_x5F_off" onMouseEnter={()=>setActiveBuilding(true)} style={{...buildingTransform, display: isActiveBuilding? "none" : "block"}}>
               <path
                 className="st29"
                 d="M624.1 509.7s3.7 136.4-37.7 246.2l49.2 48.6 49.2-13.8 20.2-61.2 73.8 53.6.2-3.5 1.1-16.4 17-4.7S750 639.6 740.2 512.8l-116.1-3.1z"
@@ -629,8 +673,8 @@ export const CityBackgroundSvg = (props) => {
               />
               <ellipse className="st39" cx={676} cy={363.9} rx={44.8} ry={12.3} />
               <ellipse className="st39" cx={676} cy={363.9} rx={13.1} ry={3.9} />
-            </g>
-            <g id="shop_x5F_off" onMouseEnter={()=>setActiveShop(true)} style={{display: isActiveShop? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="shop_x5F_off" onMouseEnter={()=>setActiveShop(true)} style={{...shopTransform, display: isActiveShop? "none" : "block"}}>
               <path
                 className="st40"
                 d="m1095 493.4 1.6 109.7 89.8 37 74.9-45.8.6-40.5s-14.2-22.3-26.2-25.7l-29.8-9.2V501l-15.7-5.6V478l-18.6-22-76.6 37.4z"
@@ -780,8 +824,8 @@ export const CityBackgroundSvg = (props) => {
                 className="st51"
                 d="M1200.7 599.3v12.5M1210.1 596.4v10.1M1213.4 598.4v5.7"
               />
-            </g>
-            <g id="market_x5F_off" onMouseEnter={()=>setActiveMarket(true)} style={{display: isActiveMarket? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="market_x5F_off" onMouseEnter={()=>setActiveMarket(true)} style={{...marketTransform, display: isActiveMarket? "none" : "block"}}>
               <path
                 className="st53"
                 d="M1157.4 661.3c-5.7-7.5-290.4 24.8-290.4 24.8l.2 101.1c.4-.1-.9.4-.6.6 13.3 7.7 26.6 15.4 40 23.1l130.1-39.5c7.4 15.9 31.2 29.9 59.3 29.9 34.1 0 61.7-17 61.7-38-.1-20.9.5-100.9-.3-102z"
@@ -2310,8 +2354,8 @@ export const CityBackgroundSvg = (props) => {
               <circle className="st4" cx={863.7} cy={770.9} r={4} />
               <circle className="st4" cx={868.5} cy={786.3} r={4} />
               <circle className="st4" cx={884.7} cy={790} r={4} />
-            </g>
-            <g id="bus_x5F_off" onMouseEnter={()=>setActiveBus(true)} style={{display: isActiveBus? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="bus_x5F_off" onMouseEnter={()=>setActiveBus(true)} style={{...busTransform, display: isActiveBus? "none" : "block"}}>
               <path
                 className="st115"
                 d="M1032.7 465.3c-.4 2.8-.5 5.8-2 6.8-.7.4-2.7 0-3.5-.1-2.4-.4-3.9-3.9-3.3-8 .6-4 3.1-7 5.5-6.6 1.2.2 4 0 4.6 1.6.5 1.3-1 4.4-1.3 6.3z"
@@ -2382,8 +2426,8 @@ export const CityBackgroundSvg = (props) => {
                 className="st48"
                 d="m1060 425.1 1.9-35.3s-2-1.5-9.6 6.5-4.9 15.2-4.9 15.2l1.9 10.4s.7-6 3.2-9.7c3.8-5.6 8.6-3.2 8.6-3.2"
               />
-            </g>
-            <g id="square_x5F_off" onMouseEnter={()=>setActiveSquare(true)} style={{display: isActiveSquare? "none" : "block"}}>
+            </animated.g>
+            <animated.g id="square_x5F_off" onMouseEnter={()=>setActiveSquare(true)} style={{...squareTransform, display: isActiveSquare? "none" : "block"}}>
               <g id="square_1_">
                 <path
                   className="st122"
@@ -2504,7 +2548,7 @@ export const CityBackgroundSvg = (props) => {
               />
               <ellipse className="st125" cx={931.5} cy={577.7} rx={6.6} ry={3.6} />
               <ellipse className="st126" cx={931.5} cy={577.7} rx={2.9} ry={1.6} />
-            </g>
+            </animated.g>
 
             <g id="post_office_x5F_on" onMouseLeave={()=>setActivePostOffice(false)} style={{display: isActivePostOffice? "block" : "none"}}>
               <path
@@ -6154,6 +6198,6 @@ export const CityBackgroundSvg = (props) => {
           />
         </g>
       </svg>
-    </Box>
+    </>
   )
 }
