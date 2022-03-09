@@ -7,6 +7,7 @@ import {
 } from 'views';
 import SalePage from "./SalePage";
 import AboutPage from "./About";
+import Roadmap from "./Roadmap/Roadmap";
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: '/test',
     renderer: (params = {}) => <WebBasicView {...params} />,
+  },
+  {
+    path: '/roadmap',
+    renderer: (params = {}) => <Roadmap {...params} />,
   },
   {
     path: '/not-found',

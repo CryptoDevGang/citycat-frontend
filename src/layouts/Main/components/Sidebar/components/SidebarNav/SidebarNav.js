@@ -15,6 +15,7 @@ const ItemButton = (props) => {
       variant="text"
       fullWidth
       component="a"
+      target={props.target ? props.target : ""}
       href={props.href}
       sx={{
         fontSize: "1.1rem",
@@ -55,6 +56,27 @@ const SidebarNav = ({pages}) => {
             <Box>
               <ItemButton text={"Home"} href={"/"}/>
             </Box>
+            <Box>
+              <ItemButton text={"Roadmap"} href={"/roadmap"}/>
+            </Box>
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <Box sx={{background: "#7c6de2", padding: "15px 30px", textAlign: "center"}}>
+            <Typography variant={"h5"} color={"white"} fontWeight={"bold"}>
+              Information
+            </Typography>
+          </Box>
+          <Box sx={{background: "#e7e7e7"}} paddingX={2} paddingY={1}>
+            <Box>
+              <ItemButton text={"About"} href={"/abouts"}/>
+            </Box>
+            <Box marginTop={1}>
+              <ItemButton text={"FAQs"} href={"/"}/>
+            </Box>
+            <Box marginTop={1}>
+              <ItemButton text={"The Team"} href={"/"}/>
+            </Box>
           </Box>
         </Grid>
         <Grid item xs={12} md={3}>
@@ -65,34 +87,25 @@ const SidebarNav = ({pages}) => {
           </Box>
           <Box sx={{background: "#e7e7e7"}} paddingX={2} paddingY={1}>
             <Box>
-              <ItemButton text={"Twitter"} href={"https://twitter.com/citycatsworld"}/>
+              <ItemButton text={"Twitter"} target="_blank" href={"https://twitter.com/citycatsworld"}/>
             </Box>
             <Box marginTop={1}>
-              <ItemButton text={"Discord"} href={"https://discord.gg/HezwYHvece"}/>
+              <ItemButton text={"Discord"} target="_blank" href={"https://discord.gg/HezwYHvece"}/>
+            </Box>
+            <Box marginTop={1}>
+              <ItemButton text={"Medium"} target="_blank" href={"https://citycats.medium.com/introducing-city-cats-f3d869dd1c45"}/>
             </Box>
           </Box>
         </Grid>
         <Grid item xs={12} md={3}>
           <Box sx={{background: "#7c6de2", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h5"} color={"white"} fontWeight={"bold"}>
-              RoadMap
+              ETC
             </Typography>
           </Box>
           <Box sx={{background: "#e7e7e7"}} paddingX={2} paddingY={1}>
             <Box>
-              <ItemButton text={"Coming Soon!"} href={"/"}/>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <Box sx={{background: "#7c6de2", padding: "15px 30px", textAlign: "center"}}>
-            <Typography variant={"h5"} color={"white"} fontWeight={"bold"}>
-              About
-            </Typography>
-          </Box>
-          <Box sx={{background: "#e7e7e7"}} paddingX={2} paddingY={1}>
-            <Box>
-              <ItemButton text={"Team"} href={"/"}/>
+              <ItemButton text={"Contact"} href={"mailto:contact@citycats.world"}/>
             </Box>
           </Box>
         </Grid>
