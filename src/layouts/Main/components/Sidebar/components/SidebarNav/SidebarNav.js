@@ -6,6 +6,7 @@ import {useTheme} from '@mui/material/styles';
 
 import NavItem from './components/NavItem';
 import {Divider, Grid, Typography} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 
 const ItemButton = (props) => {
@@ -31,6 +32,7 @@ const ItemButton = (props) => {
   )
 }
 const SidebarNav = ({pages}) => {
+  const width870 = useMediaQuery('(max-width:870px)');
   const theme = useTheme();
   const {mode} = theme.palette;
 
@@ -97,7 +99,7 @@ const SidebarNav = ({pages}) => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12} md={3} mb={width870? 6 : 0}>
           <Box sx={{background: "#7c6de2", padding: "15px 30px", textAlign: "center"}}>
             <Typography variant={"h5"} color={"white"} fontWeight={"bold"}>
               ETC
