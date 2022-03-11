@@ -1,5 +1,5 @@
 import {animated, useSpring, to, config} from 'react-spring'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 
@@ -8,6 +8,13 @@ export const CityBackgroundSvg = (props) => {
   const springRef = useRef();
 
   const [isBackLoaded, setBackLoaded] = useState(false)
+  const [canMouseOver, setCanMouseOver] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCanMouseOver(true)
+    }, 3000)
+  }, [])
 
   const postTransform = useSpring({
     from: {transform: `translateY(-1000px)`},
@@ -122,7 +129,7 @@ export const CityBackgroundSvg = (props) => {
             isBackLoaded?
               <>
               <g id="main_x5F_off">
-                <animated.g id="post_office_x5F_off" onMouseEnter={()=>setActivePostOffice(true)} style={{...postTransform, display: isActivePostOffice? "none" : "block"}}>
+                <animated.g id="post_office_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActivePostOffice(true)}}} style={{...postTransform, display: isActivePostOffice? "none" : "block"}}>
                   <path
                     className="st1"
                     d="M772.1 441.5v67.2l74.1 27.8 79.2-35.1v-63.3z"
@@ -296,7 +303,7 @@ export const CityBackgroundSvg = (props) => {
                   />
                   <path className="st16" d="M787.6 429.2v.8M785.6 429.2v.7" />
                 </animated.g>
-                <animated.g id="photo_studio_x5F_off" onMouseEnter={()=>setActivePhotoStudio(true)} style={{...photoTransform, display: isActivePhotoStudio? "none" : "block"}}>
+                <animated.g id="photo_studio_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActivePhotoStudio(true)}}} style={{...photoTransform, display: isActivePhotoStudio? "none" : "block"}}>
                   <path
                     className="st20"
                     d="M837.3 664.3c-.5 5.5-4.7 9-12.6 9.3-7.2.3-14-2.9-13.5-10.9.5-7.2 6.7-12.7 13.9-12.2s12.9 6.6 12.2 13.8z"
@@ -466,7 +473,7 @@ export const CityBackgroundSvg = (props) => {
                     d="M758.7 585.5c-.7-.9-2.1-1.2-3-.4.6-2.2-2.1-4.5-4.2-3.6-1.2-1.2-1.1-2.8-3.1-2.8-.5 0-1.4.8-1.6 1.2-1.2-1.1-3.4-1.2-4.4.1-1.1 1.3-.3 3.6 1.3 3.8-1.8-.1-3.4 1.7-3 3.5.3 1.7 2.5 2.8 4.1 2.1-1.4 1.1-1 3.5.5 4.4 1.4 1 3.4.7 4.9-.1-.7 1.2.4 2.8 1.8 3.1 1.3.3 2.7-.3 3.9-1 .6.9 1.2 1.8 2.1 2.4.9.6 2.2.8 3 .1.5-.3 1-1 1.6-.8.3.1.4.3.6.6.8 1 2.4 1.2 3.5.5-.1 1.2.6 2.3 1.7 2.7 1.1.4 2.4 0 3.1-.9.3 1.5 1.6 2.8 3.2 3 1.5.2 3.2-.7 3.9-2.1 1.2 1.5 3 2.5 4.8 2.5 1.9 0 3.7-1.3 4.2-3.2.4-1.8-1-4-2.9-4.1.3-1.9-.8-4-2.5-4.8-1.7-.9-4-.4-5.4 1-.6-1.5-2.2-2.5-3.8-2.5s-3.2 1.2-3.7 2.7c0-1.4-1.2-2.8-2.5-2.8-1.4-.1-2.8 1.1-2.9 2.5.7-1-.1-2.4-1.2-2.8-1.1-.3-2.4.1-3.4.6 0-.9-.1-4.3-.6-4.9zM815.2 598.4c-.2 1.5 1.6 2.9 3.1 2.3-1.2 1-.6 3 .9 3.6s3.3-.1 4.3-1.3c1.1 1.1 2.8 1.5 4.4 1.2 1.5-.3 2.9-1.4 3.4-2.8 1.8.7 3.9.8 5.8.3 1-.2 1.9-.7 2.5-1.4s.7-1.8.1-2.5c1.6-.5 2.5-2.4 1.7-3.9-.8-1.4-3.1-1.9-4.5-1-.8-.9-1.9-1.7-3.2-1.8s-2.7.4-3.2 1.5c-1.2-1-3-1.6-4.7-1.2-1.6.4-3 1.9-2.6 3.4-.5-1-1.8-1.5-2.9-1.2-1.6.4-1.2 1.7-2.2 2.5-1 .9-2.6.5-2.9 2.3zM853.4 578.2c-.7-.1-1.5-.1-2.2.3s-1 1.3-.6 1.9c-1.2-.2-2.5.4-3.1 1.5s-.4 2.5.5 3.5c-1 .2-1.4 1.4-1.2 2.4s1.2 1.7 2.1 2.1c1 .4 2.4.4 3.1-.4.7 1.1 2.3 1.5 3.5 1.1s2.2-1.6 2.4-2.9c1.1.5 2.4.2 3.1-.7.7-.9.7-2.3 0-3.2.8-.2 1.1-1.2 1.1-2 0-1.4-.8-2.9-2.1-3.5s-2.8 0-3.5 1.2c-1.1-.6-2-1.1-3.1-1.3z"
                   />
                 </animated.g>
-                <animated.g id="building_x5F_off" onMouseEnter={()=>setActiveBuilding(true)} style={{...buildingTransform, display: isActiveBuilding? "none" : "block"}}>
+                <animated.g id="building_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActiveBuilding(true)}}} style={{...buildingTransform, display: isActiveBuilding? "none" : "block"}}>
                   <path
                     className="st29"
                     d="M624.1 509.7s3.7 136.4-37.7 246.2l49.2 48.6 49.2-13.8 20.2-61.2 73.8 53.6.2-3.5 1.1-16.4 17-4.7S750 639.6 740.2 512.8l-116.1-3.1z"
@@ -680,7 +687,7 @@ export const CityBackgroundSvg = (props) => {
                   <ellipse className="st39" cx={676} cy={363.9} rx={44.8} ry={12.3} />
                   <ellipse className="st39" cx={676} cy={363.9} rx={13.1} ry={3.9} />
                 </animated.g>
-                <animated.g id="shop_x5F_off" onMouseEnter={()=>setActiveShop(true)} style={{...shopTransform, display: isActiveShop? "none" : "block"}}>
+                <animated.g id="shop_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActiveShop(true)}}} style={{...shopTransform, display: isActiveShop? "none" : "block"}}>
                   <path
                     className="st40"
                     d="m1095 493.4 1.6 109.7 89.8 37 74.9-45.8.6-40.5s-14.2-22.3-26.2-25.7l-29.8-9.2V501l-15.7-5.6V478l-18.6-22-76.6 37.4z"
@@ -831,7 +838,7 @@ export const CityBackgroundSvg = (props) => {
                     d="M1200.7 599.3v12.5M1210.1 596.4v10.1M1213.4 598.4v5.7"
                   />
                 </animated.g>
-                <animated.g id="market_x5F_off" onMouseEnter={()=>setActiveMarket(true)} style={{...marketTransform, display: isActiveMarket? "none" : "block"}}>
+                <animated.g id="market_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActiveMarket(true)}}} style={{...marketTransform, display: isActiveMarket? "none" : "block"}}>
                   <path
                     className="st53"
                     d="M1157.4 661.3c-5.7-7.5-290.4 24.8-290.4 24.8l.2 101.1c.4-.1-.9.4-.6.6 13.3 7.7 26.6 15.4 40 23.1l130.1-39.5c7.4 15.9 31.2 29.9 59.3 29.9 34.1 0 61.7-17 61.7-38-.1-20.9.5-100.9-.3-102z"
@@ -2361,7 +2368,7 @@ export const CityBackgroundSvg = (props) => {
                   <circle className="st4" cx={868.5} cy={786.3} r={4} />
                   <circle className="st4" cx={884.7} cy={790} r={4} />
                 </animated.g>
-                <animated.g id="bus_x5F_off" onMouseEnter={()=>setActiveBus(true)} style={{...busTransform, display: isActiveBus? "none" : "block"}}>
+                <animated.g id="bus_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActiveBus(true)}}} style={{...busTransform, display: isActiveBus? "none" : "block"}}>
                   <path
                     className="st115"
                     d="M1032.7 465.3c-.4 2.8-.5 5.8-2 6.8-.7.4-2.7 0-3.5-.1-2.4-.4-3.9-3.9-3.3-8 .6-4 3.1-7 5.5-6.6 1.2.2 4 0 4.6 1.6.5 1.3-1 4.4-1.3 6.3z"
@@ -2433,7 +2440,7 @@ export const CityBackgroundSvg = (props) => {
                     d="m1060 425.1 1.9-35.3s-2-1.5-9.6 6.5-4.9 15.2-4.9 15.2l1.9 10.4s.7-6 3.2-9.7c3.8-5.6 8.6-3.2 8.6-3.2"
                   />
                 </animated.g>
-                <animated.g id="square_x5F_off" onMouseEnter={()=>setActiveSquare(true)} style={{...squareTransform, display: isActiveSquare? "none" : "block"}}>
+                <animated.g id="square_x5F_off" onMouseEnter={()=>{if(canMouseOver){setActiveSquare(true)}}} style={{...squareTransform, display: isActiveSquare? "none" : "block"}}>
                   <g id="square_1_">
                     <path
                       className="st122"
@@ -2556,7 +2563,9 @@ export const CityBackgroundSvg = (props) => {
                   <ellipse className="st126" cx={931.5} cy={577.7} rx={2.9} ry={1.6} />
                 </animated.g>
 
-                <g id="post_office_x5F_on" onMouseLeave={()=>setActivePostOffice(false)} style={{display: isActivePostOffice? "block" : "none"}}>
+                <g id="post_office_x5F_on" onClick={() => {
+                  window.open("https://twitter.com/citycatsworld", '_blank');
+                }} onMouseLeave={()=>setActivePostOffice(false)} style={{display: isActivePostOffice? "block" : "none"}}>
                   <path
                     className="sst9"
                     d="M837.6 335.2c-.8.2-1.5.8-2.3 1.2-.1.1-.6 3.3-1.1 4.7-.9-1.4-5.1-6-5.5-6.9-2-4.2 7.3-9.7 10-6.5 1.8 2 2.2 6.3 4 8.7-1.3.1-4.7-1.3-5.1-1.2z"
@@ -2905,7 +2914,9 @@ export const CityBackgroundSvg = (props) => {
                   />
                   <path className="sst135" d="m915.3 361.9-.2.7M917.1 361.6l-.2.7" />
                 </g>
-                <g id="photo_studio_x5F_on" onMouseLeave={()=>setActivePhotoStudio(false)} style={{display: isActivePhotoStudio? "block" : "none"}}>
+                <g id="photo_studio_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }} onMouseLeave={()=>setActivePhotoStudio(false)} style={{display: isActivePhotoStudio? "block" : "none"}}>
                   <path
                     className="sst22"
                     d="M840.6 663.4c-.3 5.5-4.3 9.2-12.2 9.8-7.2.6-14.1-2.3-13.9-10.4.2-7.2 6.1-13 13.4-12.8 7.3.1 13.1 6.1 12.7 13.4z"
@@ -3276,7 +3287,9 @@ export const CityBackgroundSvg = (props) => {
                     d="M864.2 610.7c-.4 0-.6-.1-.8-.1-.1 0-.2-.1-.3-.1.3 0 .5-.1.8-.1.4.1.9.2 1.5.2h.2c.1 0 .1 0 .1-.1l-.1-.1h-.2c-.4 0-.7-.1-1-.1.2-.1.4-.2.6-.2.4 0 1 .1 1.6 0h.2v-.1h-1.4c.4-.2.7-.4.7-.5 2.6-.4 2.9-.9 3-1.1 0-.1-.1-.2-.3-.2-1.4-.4-2.9-.5-3.8-.5h-1.6c.3-.1 1.1-.5.7-.6-.4-.1-1.4.3-1.8.3.1-.2.5-.5.2-.6-.4-.1-.9.2-1.6.2.1-.4-.1-.8-.6-1.1s-1.2-.5-1.7-.7c-.3-.1-.8-.1-1.1-.1-1 .1-1.8.4-2.2.7-.2.2-.3.4-.3.5-.2 0-.9.1-1.5.3-.3-.2-.2-.4-.2-.4s0-.1-.1-.1h-.4c-.1 0-.1 0-.1.1 0 0-.1.2.1.4.1.1.2.2.3.2-.3.1-.5.1-.7.2-.5-.2-.6-.4-.6-.4s-.1 0-.1-.1h-.3c-.2 0-.3 0-.3.1 0 0 .1.2.4.4.1.1.3.2.5.2-.1 0-.2.1-.3.1 0 0-.1 0-.1.1-.1 0-.1 0-.2-.1-.1 0-.1 0-.2-.1-.4-.1-.6-.3-.6-.3h-.5c-.2 0-.2.1-.1.1 0 0 .3.1.7.3.1 0 .1 0 .2.1.1 0 .3.1.4.1-.8.7.2 1.7 2.8 2.5 2.8.8 6.4 1.1 8.6.8.1 0 .2.1.4.1.3.1.6.1.9.2h.4c0-.4 0-.4-.2-.4zm2.5-.9s-.1 0 0 0c-.1 0 0 0 0 0zm-.1 0zm-13.6-3.9zm-1.6.3zm.1.1zm0 0c.1 0 .1 0 0 0 .1 0 .1 0 0 0zm.1.1zm0 0s.1 0 0 0c.1 0 0 0 0 0zm.1.1zm.4.2zm-1.8 0zm7.8-1.2c.8.1 1 .7.8 1l-2.2-.2c-.2-.4.9-.9 1.4-.8zm-1.4 2.8c-.3 0-.5-.1-.6-.2 0-.1-.4.1-1.1-.1-.1 0-.1-.1-.1-.1l-.1-.1c-1.8-.1 0-.8.9-.4.1 0 .4-.1.9.1.4.1.1.3.3.3.5 0 1.2.2.6.3h-.1c.2.1-.1.2-.7.2zm4.3 1.3h-.7c-.8-.2-.2-.3-.4-.3-.3 0-.5-.1-.6-.2-.2-.2.1-.3.5-.2h.1c.4-.2 1.2 0 1.1.2 0 .1.4 0 .8.1.5.2.1.3.3.3 1.5.1-.7.7-1.1.1zm4.4-1-.6-.6c.7-.1 2.1 0 2.6.2.4.1-1.3.4-2 .4zm-1.2 2.1z"
                   />
                 </g>
-                <g id="building_x5F_on"  onMouseLeave={()=>setActiveBuilding(false)} style={{display: isActiveBuilding? "block" : "none"}}>
+                <g id="building_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }}  onMouseLeave={()=>setActiveBuilding(false)} style={{display: isActiveBuilding? "block" : "none"}}>
                   <path
                     className="sst31"
                     d="M625.9 508.6s-.2 136.5-44.8 245l47.8 50 49.5-12.3 22-60.5 72.2 55.7.3-3.5 1.5-16.4 17.2-4.2S748 642.1 741.9 515.1l-116-6.5z"
@@ -3751,7 +3764,9 @@ export const CityBackgroundSvg = (props) => {
                     d="M632 661.2c-1.9.9-1.3 4.7 1.5 3.8 1.8-.6 1.9-4.4-.8-4l-.7.2zM633.4 658.7c-.8.4-.6 2.1.7 1.7.8-.3.8-1.9-.4-1.8l-.3.1zM630.9 659.1c-.8.4-.6 2.1.7 1.7.8-.3.8-1.9-.4-1.8l-.3.1zM629.4 661.3c-.7.4-.5 1.8.6 1.5.7-.2.8-1.7-.3-1.6l-.3.1zM623.6 703.7c-1.9-1-4.5 1.8-2.1 3.4 1.6 1.1 4.6-1.1 2.7-3l-.6-.4zM626.5 703.3c-.8-.4-2 .8-.9 1.5.7.5 2.1-.5 1.2-1.3l-.3-.2zM624.6 701.5c-.8-.4-2 .8-.9 1.5.7.5 2.1-.5 1.2-1.3l-.3-.2zM622 701.7c-.7-.4-1.8.7-.8 1.4.6.4 1.8-.4 1.1-1.2l-.3-.2zM612.1 720.5c-1.9-1-4.5 1.8-2.1 3.4 1.6 1.1 4.6-1.1 2.7-3l-.6-.4zM614.9 720.1c-.8-.4-2 .8-.9 1.5.7.5 2.1-.5 1.2-1.3l-.3-.2zM613.1 718.3c-.8-.4-2 .8-.9 1.5.7.5 2.1-.5 1.2-1.3l-.3-.2zM610.4 718.5c-.7-.4-1.8.7-.8 1.4.6.4 1.8-.4 1.1-1.2l-.3-.2zM632.5 745.1c-2.1.4-2.4 4.2.5 4 1.9-.1 2.9-3.8.2-4.1l-.7.1zM634.5 743c-.9.2-1 1.9.2 1.8.8-.1 1.3-1.7.1-1.8h-.3zM631.9 742.7c-.9.2-1 1.9.2 1.8.8-.1 1.3-1.7.1-1.8h-.3zM630 744.6c-.8.2-.9 1.7.2 1.6.8-.1 1.1-1.5.1-1.6h-.3zM636.8 637.9c-2-.7-4.2 2.4-1.6 3.7 1.7.9 4.4-1.7 2.3-3.4l-.7-.3zM639.6 637.1c-.9-.3-1.9 1.1-.7 1.6.8.4 2-.8 1-1.5l-.3-.1zM637.5 635.5c-.9-.3-1.9 1.1-.7 1.6.8.4 2-.8 1-1.5l-.3-.1zM634.9 636.1c-.8-.3-1.7.9-.6 1.5.7.3 1.8-.7.9-1.3l-.3-.2z"
                   />
                 </g>
-                <g id="shop_x5F_on" onMouseLeave={()=>setActiveShop(false)} style={{display: isActiveShop? "block" : "none"}}>
+                <g id="shop_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }} onMouseLeave={()=>setActiveShop(false)} style={{display: isActiveShop? "block" : "none"}}>
                   <path
                     className="sst42"
                     d="m1093.2 496 5.4 109.6 91 33.9 73.3-48.3-.8-40.5s-14.9-21.8-27-24.8l-30.1-8.2-.6-17.9-15.9-5-.6-17.4-19.4-21.4-75.3 40z"
@@ -4030,7 +4045,9 @@ export const CityBackgroundSvg = (props) => {
                   />
                   <path className="sst44" d="m1212 612.4-.3-1.7M1205.6 613.2v-1.6" />
                 </g>
-                <g id="market_x5F_on" onMouseLeave={()=>setActiveMarket(false)} style={{display: isActiveMarket? "block" : "none"}}>
+                <g id="market_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }} onMouseLeave={()=>setActiveMarket(false)} style={{display: isActiveMarket? "block" : "none"}}>
                   <path
                     className="sst55"
                     d="M1158.5 665.2c-5.5-7.7-291 17.1-291 17.1L865 783.4c.4-.1-.9.4-.6.6 13.1 8 26.2 16.1 39.4 24.1l131.1-36c7 16.1 30.3 30.7 58.5 31.5 34.1.9 62.1-15.3 62.7-36.3.5-21 3.2-101 2.4-102.1z"
@@ -5806,7 +5823,9 @@ export const CityBackgroundSvg = (props) => {
                   <circle className="sst6" cx={868.5} cy={786.3} r={4} />
                   <circle className="sst6" cx={884.7} cy={790} r={4} />
                 </g>
-                <g id="bus_x5F_on" onMouseLeave={()=>setActiveBus(false)} style={{display: isActiveBus? "block" : "none"}}>
+                <g id="bus_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }} onMouseLeave={()=>setActiveBus(false)} style={{display: isActiveBus? "block" : "none"}}>
                   <linearGradient
                     id="SVGID_00000165949630081110681780000008726143082017651841_"
                     gradientUnits="userSpaceOnUse"
@@ -5953,7 +5972,9 @@ export const CityBackgroundSvg = (props) => {
                     d="M1198.8 328s-.1 0 0 0c-.3.1-.5.2-.7.2h-.3c0-.3.1-.5 0-.8.3-.1.7-.3 1-.7 0-.1.1-.1.1-.2s0-.1-.1-.2c-.1 0-.1-.1-.2-.1s-.1 0-.2.1c-.2.2-.4.4-.6.5 0-.3-.1-.6-.2-.8.3-.2.5-.5.7-1v-.2c0-.1-.1-.1-.1-.1h-.1c-.1 0-.2.1-.2.1-.1.3-.3.5-.4.6-.2-.7-.5-1.2-.5-1.3.4-2.4-.5-3.6-.9-4-.1-.1-.3-.2-.5-.2-1.4.1-2.2 1-2.6 1.6-.2.4-.5 1-.6 1.1-.1-.4-.5-1.6-.8-1.5-.4.1-.1 1.4-.3 1.6-.4-.5-.7-1.2-1-1.1s0 .9-.2 1.5c-.7-.8-1.5-1.4-2.3-1.7-.8-.3-1.5-.2-2-.1-.3.1-.5.3-.6.6-.2.9-.1 1.8.4 2.8.3.5.6.9.8 1.1 0 .2-.1.8-.2 1.5-.5-.2-.9-.6-.9-.6-.1-.1-.1-.1-.2-.1h-.1c-.1 0-.1.1-.1.2v.2s.3.3.7.6c.2.1.4.2.6.2 0 .3 0 .6.1.9-.6 0-1-.4-1-.4-.1 0-.1-.1-.2 0-.1 0-.1 0-.2.1s-.1.3.1.4c0 0 .3.2.8.4.2.1.4.1.6.1 0 .1.1.3.1.5 0 .1 0 .1.1.2h-.4c-.4 0-.7-.1-.7-.1h-.1c-.1 0-.2.1-.2.2s.1.3.2.3c0 0 .4.1.9.1h.2c.1 0 .2 0 .4-.1.9 1.8 3.2 2.9 5.8 2.6 2.8-.3 4.9-2.1 5.1-4.3h.4c.3 0 .5-.1.8-.2.1-.1.2-.2.1-.3-.1-.2-.2-.3-.3-.2zm-.6-3.2zm-.1 0c.1 0 .1 0 0 0 .1 0 0 0 0 0zm-13 1.9zm0 1.7zm.1 0zm.1.1s.1 0 0 0c.1 0 0 0 0 0zm.1 0s0 .1 0 0c0 .1 0 0 0 0zm.1.1c.1 0 .1 0 0 0 .1 0 .1 0 0 0zm.1.1s.1 0 0 0c.1 0 0 0 0 0zm.7.1zm-.9 1.2zm1.2-7.3c.6-.3 1.7.5 2.1 1.2l-1.3 1.1c-.7-.5-1.2-2.2-.8-2.3zm4.5 5.9c-.2.1-.4.1-.6.1-.1-.1 0 .5-.7.5-.1 0-.2-.1-.3-.2 0 0-.1-.1-.1 0-1 .9-1.5-1.4-.3-1.2.1 0 0-.4.6-.5.4 0 .5.4.6.2.2-.4.9-.4.9.2 0 .1 0 .1.1.1.1.1.2.5-.2.8zm4.4-.4c-.1 0-.1 0 0 0-.1.1-.2.2-.3.2-.7.2-.7-.5-.8-.3-.2.1-.4.1-.6.1-.5-.2-.4-.6-.2-.8v-.1c-.2-.5.6-.7.8-.4.1.1.1-.3.5-.4.5-.1.5.4.7.3 1-.3 1.1 2.1-.1 1.4zm0-4.7-1.4-.7c.1-.6.9-1.3 1.4-1.4.5 0 .3 1.7 0 2.1zm3.3 4.5z"
                   />
                 </g>
-                <g id="square_x5F_on" onMouseLeave={()=>setActiveSquare(false)} style={{display: isActiveSquare? "block" : "none"}}>
+                <g id="square_x5F_on" onClick={() => {
+                  window.location.href="/comingsoon"
+                }} onMouseLeave={()=>setActiveSquare(false)} style={{display: isActiveSquare? "block" : "none"}}>
                   <path
                     className="sst124"
                     d="M1018.3 564.7c0 8.3-18.3 16.4-40.9 16.4-22.6 0-40.9-8.1-40.9-16.4 0-8.3 18.3-14.9 40.9-14.9 22.5-.1 40.9 6.6 40.9 14.9z"

@@ -109,14 +109,14 @@ const About = (props) => {
                 <img style={{width: "70px"}} src={"/about/about_citycat_logo.png"}/>
               </Box>
               <Box mt={-1}>
-                <a style={{marginRight: "10px"}} href={"https://discord.gg/4cjJkfyG4V"}>
+                <a style={{marginRight: "10px"}} href={"https://discord.gg/citycats"} target={"_blank"}>
                   <img style={{width: "70px"}} src={"/about/about_discord.png"}/>
                 </a>
-                <a style={{marginRight: "10px"}} href={"https://twitter.com/citycatsworld"}>
+                <a style={{marginRight: "10px"}} href={"https://twitter.com/citycatsworld"} target={"_blank"}>
                   <img style={{width: "70px"}} src={"/about/about_twitter.png"}/>
                 </a>
-                <a href={"/sale"}>
-                  <img style={{width: "70px"}} src={"/about/about_market.png"}/>
+                <a href={"https://citycats.medium.com/"} target={"_blank"}>
+                  <img style={{width: "70px"}} src={"/about/about_medium.png"}/>
                 </a>
               </Box>
               <Typography mt={4} color={"white"} fontWeight={"bold"} sx={{fontSize: "17px"}}>

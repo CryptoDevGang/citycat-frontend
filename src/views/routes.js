@@ -8,6 +8,7 @@ import {
 import SalePage from "./SalePage";
 import AboutPage from "./About";
 import Roadmap from "./Roadmap/Roadmap";
+import ComingsoonPage from "./Comingsoon";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: '/test',
     renderer: (params = {}) => <WebBasicView {...params} />,
+  },
+  {
+    path: '/comingsoon',
+    renderer: (params = {}) => <ComingsoonPage {...params} />,
   },
   {
     path: '/roadmap',
