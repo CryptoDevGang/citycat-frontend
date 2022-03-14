@@ -58,7 +58,7 @@ The following are the pages that have Figma and Sketch design implementation:
 - [Career Listing](https://thefront.maccarianagency.com/career-listing-minimal)
 - [Career Opening](https://thefront.maccarianagency.com/career-opening)
 - [Help Center](https://thefront.maccarianagency.com/help-center)
-- [Company AboutPage](https://thefront.maccarianagency.com/about)
+- [Company TeamPage](https://thefront.maccarianagency.com/about)
 - [Company Pricing](https://thefront.maccarianagency.com/pricing)
 - [Blog Newsroom](https://thefront.maccarianagency.com/blog-newsroom)
 - [Blog Article](https://thefront.maccarianagency.com/blog-article)

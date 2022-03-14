@@ -9,6 +9,7 @@ import SalePage from "./SalePage";
 import AboutPage from "./About";
 import Roadmap from "./Roadmap/Roadmap";
 import ComingsoonPage from "./Comingsoon";
+import TeamPage from "./Team";
 
 const routes = [
   {
@@ -26,6 +27,10 @@ const routes = [
   {
     path: '/test',
     renderer: (params = {}) => <WebBasicView {...params} />,
+  },
+  {
+    path: '/team',
+    renderer: (params = {}) => <TeamPage {...params} />,
   },
   {
     path: '/comingsoon',

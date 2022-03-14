@@ -77,7 +77,7 @@ const SidebarNav = ({pages}) => {
               <ItemButton text={"FAQs"} href={"/"}/>
             </Box>
             <Box marginTop={1}>
-              <ItemButton text={"The Team"} href={"/"}/>
+              <ItemButton text={"The Team"} href={"/team"}/>
             </Box>
           </Box>
         </Grid>
