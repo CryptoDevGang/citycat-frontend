@@ -20,7 +20,7 @@ const TeamPage = () => {
           width870 ?
             <>
               <ImageMap
-                style={{width: "100%"}}
+                style={{width: "100%", marginBottom: "-10px"}}
                 className="mo-map"
                 src={"/team/team_mo.jpeg"}
                 map={moMap}
@@ -30,7 +30,7 @@ const TeamPage = () => {
             :
             <>
               <ImageMap
-                style={{width: "100%"}}
+                style={{width: "100%", marginBottom: "-10px"}}
                 className="pc-map"
                 src={"/team/team_pc.jpeg"}
                 map={pcMap}
