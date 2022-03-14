@@ -8,8 +8,8 @@ import {
 import SalePage from "./SalePage";
 import AboutPage from "./About";
 import Roadmap from "./Roadmap/Roadmap";
-import ComingsoonPage from "./Comingsoon";
 import TeamPage from "./Team";
+import ComingsoonPage from "./Comingsoon";
 
 const routes = [
   {
@@ -29,16 +29,16 @@ const routes = [
     renderer: (params = {}) => <WebBasicView {...params} />,
   },
   {
-    path: '/team',
-    renderer: (params = {}) => <TeamPage {...params} />,
-  },
-  {
     path: '/comingsoon',
     renderer: (params = {}) => <ComingsoonPage {...params} />,
   },
   {
     path: '/roadmap',
     renderer: (params = {}) => <Roadmap {...params} />,
+  },
+  {
+    path: '/teams',
+    renderer: (params = {}) => <TeamPage {...params} />,
   },
   {
     path: '/not-found',
