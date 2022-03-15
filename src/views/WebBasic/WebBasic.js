@@ -42,7 +42,7 @@ const WebBasic = () => {
                   </a>
                 </Box>
                 <Box sx={{alignSelf: "center"}}>
-                  <a href={"https://discord.gg/HezwYHvece"} target={"_blank"}>
+                  <a href={"https://discord.gg/citycats"} target={"_blank"}>
                     <img style={{height: "35px"}} src={"/discord.png"}/>
                   </a>
                 </Box>

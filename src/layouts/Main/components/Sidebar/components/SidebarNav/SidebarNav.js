@@ -92,10 +92,10 @@ const SidebarNav = ({pages}) => {
               <ItemButton text={"Twitter"} target="_blank" href={"https://twitter.com/citycatsworld"}/>
             </Box>
             <Box marginTop={1}>
-              <ItemButton text={"Discord"} target="_blank" href={"https://discord.gg/HezwYHvece"}/>
+              <ItemButton text={"Discord"} target="_blank" href={"https://discord.gg/citycats"}/>
             </Box>
             <Box marginTop={1}>
-              <ItemButton text={"Medium"} target="_blank" href={"https://citycats.medium.com/introducing-city-cats-f3d869dd1c45"}/>
+              <ItemButton text={"Medium"} target="_blank" href={"https://citycats.medium.com/"}/>
             </Box>
           </Box>
         </Grid>
