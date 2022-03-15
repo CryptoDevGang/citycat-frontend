@@ -159,7 +159,7 @@ const MobileAbout = (props) => {
                 </a>
               </Box>
               <Typography color={"white"} fontWeight={"bold"} sx={{fontSize: "0.5rem"}}>
-                City Cats
+                Copyright © 2022 City Cats.
               </Typography>
             </Box>
           </>

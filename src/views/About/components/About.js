@@ -120,7 +120,7 @@ const About = (props) => {
                 </a>
               </Box>
               <Typography mt={4} color={"white"} fontWeight={"bold"} sx={{fontSize: "17px"}}>
-                City Cats
+                Copyright © 2022 City Cats.
               </Typography>
             </Box>
           </>
