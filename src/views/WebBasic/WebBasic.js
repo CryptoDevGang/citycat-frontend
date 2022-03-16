@@ -23,13 +23,9 @@ const WebBasic = () => {
         }}
       >
         <Container>
-          {/*<img style={{width: "100%", height: "100vh", objectPosition: "center"}} src={"/coming-soon.jpg"}/>*/}
-          {window.location.pathname === '/test' ?
-            <Box mt={width870? 0 : -15}>
-              <CityBackgroundSvg/>
-            </Box>
-            : <ComingSoonBackground/>
-          }
+          <Box mt={width870 ? 0 : -15}>
+            <CityBackgroundSvg/>
+          </Box>
           {width870 ?
             <Box mt={-3} sx={{height: "500px", background: "#222222", textAlign: "center"}}>
               <Box>

@@ -42,12 +42,10 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
               width={1}
             />
           </Box>
-          {window.location.pathname === '/test' ?
-            <Box alignItems={'center'}>
-              <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
-                         hideOutline={true}/>
-            </Box> :
-            <></>}
+          <Box alignItems={'center'}>
+            <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
+                       hideOutline={true}/>
+          </Box>
 
         </Box>
       </Container>
