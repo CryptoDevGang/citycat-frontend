@@ -17,7 +17,7 @@ const routes = [
     renderer: (params = {}) => <WebBasicView {...params} />,
   },
   {
-    path: '/sale',
+    path: '/sales',
     renderer: (params = {}) => <SalePage {...params} />,
   },
   {
