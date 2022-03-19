@@ -20,7 +20,7 @@ const MobileAbout = (props) => {
             <Typography
               sx={{
                 position: "absolute",
-                top: "5%",
+                top: "6%",
                 left: "5%",
                 color: "white",
                 maxWidth: "700px",
