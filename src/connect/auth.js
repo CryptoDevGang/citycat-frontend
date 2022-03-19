@@ -30,8 +30,8 @@ export const useConnect = () => {
     redirectTo: window.location.pathname,
     manifestPath: '/manifest.json',
     appDetails: {
-      name: 'NFP',
-      icon: 'https://app.nfpstudio.io/apple-touch-icon.png'
+      name: 'CityCats',
+      icon: 'https://citycats.world/about/about_citycat_logo.png'
     },
   };
 
