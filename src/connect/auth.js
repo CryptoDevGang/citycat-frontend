@@ -31,7 +31,7 @@ export const useConnect = () => {
     manifestPath: '/manifest.json',
     appDetails: {
       name: 'CityCats',
-      icon: 'https://citycats.world/about/about_citycat_logo.png'
+      icon: 'https://citycats.world/resource/favicon.ico'
     },
   };
 
