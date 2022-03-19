@@ -85,7 +85,7 @@ const SalePage = () => {
                         <BorderLinearProgress variant="determinate" value={100}/>
                       </Box>
                       <Divider sx={{backgroundColor: "white"}}/>
-                      <Box mt={3} sx={{display: "flex", flexWrap: "wrap", gap: "50px"}}>
+                      <Box mt={3} sx={{display: "flex", flexWrap: "nowrap", gap: width870 ? "0px" : "50px", padding: width870? "0px 0px" : "10px 30px"}}>
                         <Button sx={{
                           minHeight: "71px",
                           flexGrow: 1,
@@ -135,9 +135,9 @@ const SalePage = () => {
                           sx={{
                             backgroundColor: "#663ff1",
                             padding: width870 ? "0px 0px" : "10px 20px",
-                            fontSize: width870 ? "0.4rem" : "20px",
+                            fontSize: width870 ? "1rem" : "20px",
                             fontWeight: "bold",
-                            minWidth: "15%",
+                            minWidth: width870? "50%" : "15%",
                             color: "white"
                           }}
                           onClick={() => {
