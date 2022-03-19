@@ -60,7 +60,7 @@ const SalePage = () => {
           <Box sx={{display: "flex", position: "relative"}}>
             <img style={{width: '100%'}} src={"/sale_background.jpeg"}/>
           </Box>
-          <Box sx={{backgroundColor: "#1d1270", padding: "60px 0px"}}>
+          <Box sx={{backgroundColor: "#1d1270", padding: width870? "5px 0px" : "60px 0px"}}>
             <Grid container>
               <Grid xs={12} md={6} item>
                 <img style={{width: "60%", display: "block", margin: "0px auto"}} src={"/sale/gatcha.png"}/>
