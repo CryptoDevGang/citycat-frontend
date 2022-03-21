@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
@@ -38,9 +38,12 @@ const SalePage = () => {
   const width870 = useMediaQuery('(max-width:870px)');
   const [mintCount, setMintCount] = useState(3);
   const {handleOpenAuth, handleSignOut} = useConnect();
-  const { connected } = useSelector((state) => state.connect);
+  const {connected} = useSelector((state) => state.connect);
   const dispatch = useDispatch();
   const {authOptions, userSession} = useConnect()
+
+  const saleRef = useRef();
+  const aboutRef = useRef();
 
   useEffect(() => {
     dispatch(setConnected(userSession.isUserSignedIn()))
@@ -59,11 +62,59 @@ const SalePage = () => {
         <Container>
           <Box sx={{display: "flex", position: "relative"}}>
             <img style={{width: '100%'}} src={"/sale_background.jpeg"}/>
+            <Box sx={{width: "100%", position: "absolute", bottom: "20%", right: "auto", textAlign: "center"}}>
+              <Button
+                onClick={() => {
+                  saleRef.current.scrollIntoView({behavior: 'smooth', block: "center", inline: "nearest"})
+                }}
+                sx={{
+                  backgroundImage: "url('/button_background_purple.png')",
+                  backgroundSize: "100% 100%",
+                  backgroundRepeat: "no-repeat",
+                  padding: width870 ? "0px 0px" : "10px 20px",
+                  fontSize: width870 ? "0.5rem" : "25px",
+                  fontWeight: "bold",
+                  minWidth: "15%",
+                  color: "white"
+                }}
+              >
+                Mint
+              </Button>
+            </Box>
+            <Box sx={{
+              width: "100%",
+              position: "absolute",
+              bottom: width870 ? "7%" : "10%",
+              right: "auto",
+              textAlign: "center"
+            }}>
+              <Button
+                onClick={() => {
+                  window.scroll({
+                    top: width870 ? aboutRef.current.offsetTop - 100 : aboutRef.current.offsetTop - 70,
+                    behavior: "smooth"
+                  })
+                }}
+                sx={{
+                  backgroundImage: "url('/button_background_pink.png')",
+                  backgroundSize: "100% 100%",
+                  backgroundRepeat: "no-repeat",
+                  padding: width870 ? "0px 0px" : "10px 20px",
+                  fontSize: width870 ? "0.5rem" : "25px",
+                  fontWeight: "bold",
+                  minWidth: "15%",
+                  color: "white"
+                }}
+              >
+                About
+              </Button>
+            </Box>
           </Box>
-          <Box sx={{backgroundColor: "#1d1270", padding: width870? "5px 0px" : "60px 0px"}}>
+          <Box ref={saleRef} sx={{backgroundColor: "#1d1270", padding: width870 ? "5px 0px" : "60px 0px"}}>
             <Grid container>
               <Grid xs={12} md={6} item>
-                <img style={{width: "60%", display: "block", margin: "0px auto"}} src={"/sale/gatcha.png"}/>
+                <img style={{width: "60%", display: "block", margin: "0px auto", marginTop: "10px"}}
+                     src={"/sale/gatcha.png"}/>
               </Grid>
               <Grid xs={12} md={6} item>
                 <Card sx={{width: "95%", margin: "auto auto"}}>
@@ -85,44 +136,61 @@ const SalePage = () => {
                         <BorderLinearProgress variant="determinate" value={100}/>
                       </Box>
                       <Divider sx={{backgroundColor: "white"}}/>
-                      <Box mt={3} sx={{display: "flex", flexWrap: "nowrap", gap: width870 ? "0px" : "50px", padding: width870? "0px 0px" : "10px 30px"}}>
-                        <Button sx={{
-                          minHeight: "71px",
-                          flexGrow: 1,
-                          backgroundImage: "url('/sale/mint1.png')",
-                          backgroundSize: "100% 100%",
-                          backgroundRepeat: "no-repeat"
-                        }} onClick={() => {setMintCount(1)}}
-                        />
-                        <Button sx={{
-                          minHeight: "71px",
-                          flexGrow: 1,
-                          backgroundImage: "url('/sale/mint2.png')",
-                          backgroundSize: "100% 100%",
-                          backgroundRepeat: "no-repeat"
-                        }} onClick={() => {setMintCount(2)}}
-                        />
-                        <Button sx={{
-                          minHeight: "71px",
-                          flexGrow: 1,
-                          backgroundImage: "url('/sale/mint3.png')",
-                          backgroundSize: "100% 100%",
-                          backgroundRepeat: "no-repeat"
-                        }} onClick={() => {setMintCount(3)}}/>
-                        <Button sx={{
-                          minHeight: "71px",
-                          flexGrow: 1,
-                          backgroundImage: "url('/sale/mint4.png')",
-                          backgroundSize: "100% 100%",
-                          backgroundRepeat: "no-repeat"
-                        }} onClick={() => {setMintCount(4)}}/>
-                        <Button sx={{
-                          minHeight: "71px",
-                          flexGrow: 1,
-                          backgroundImage: "url('/sale/mint5.png')",
-                          backgroundSize: "100% 100%",
-                          backgroundRepeat: "no-repeat"
-                        }} onClick={() => {setMintCount(5)}}/>
+                      <Box mt={3} sx={{
+                        display: "flex",
+                        flexWrap: "nowrap",
+                        gap: width870 ? "auto" : "auto",
+                      }}>
+                        <Button
+                          sx={{
+                            flexGrow: 1
+                          }}
+                          onClick={() => {
+                            setMintCount(1)
+                          }}
+                        >
+                          <img style={{width: "100%"}} src={'/sale/mint1.png'}/>
+                        </Button>
+                        <Button
+                          sx={{
+                            flexGrow: 1
+                          }}
+                          onClick={() => {
+                            setMintCount(2)
+                          }}
+                        >
+                          <img style={{width: "100%"}} src={'/sale/mint2.png'}/>
+                        </Button>
+                        <Button
+                          sx={{
+                            flexGrow: 1
+                          }}
+                          onClick={() => {
+                            setMintCount(3)
+                          }}
+                        >
+                          <img style={{width: "100%"}} src={'/sale/mint3.png'}/>
+                        </Button>
+                        <Button
+                          sx={{
+                            flexGrow: 1
+                          }}
+                          onClick={() => {
+                            setMintCount(4)
+                          }}
+                        >
+                          <img style={{width: "100%"}} src={'/sale/mint4.png'}/>
+                        </Button>
+                        <Button
+                          sx={{
+                            flexGrow: 1
+                          }}
+                          onClick={() => {
+                            setMintCount(5)
+                          }}
+                        >
+                          <img style={{width: "100%"}} src={'/sale/mint5.png'}/>
+                        </Button>
                       </Box>
                       <Box mt={3}>
                         <Typography sx={{textAlign: "center"}} variant={"h5"}>
@@ -137,13 +205,13 @@ const SalePage = () => {
                             padding: width870 ? "0px 0px" : "10px 20px",
                             fontSize: width870 ? "1rem" : "20px",
                             fontWeight: "bold",
-                            minWidth: width870? "50%" : "15%",
+                            minWidth: width870 ? "50%" : "15%",
                             color: "white"
                           }}
                           onClick={() => {
-                            if(!connected){
+                            if (!connected) {
                               handleOpenAuth()
-                            }else{
+                            } else {
                               doMint(mintCount)
                             }
                           }}
@@ -157,16 +225,17 @@ const SalePage = () => {
               </Grid>
             </Grid>
           </Box>
-          {
-            width870 ? <MobileAbout isSale={true}/>
-              :
-              <About isSale={true}/>
-          }
-
+          <Box ref={aboutRef}>
+            {
+              width870 ? <MobileAbout isSale={true}/>
+                :
+                <About isSale={true}/>
+            }
+          </Box>
         </Container>
       </Box>
     </Main>
-);
+  );
 };
 
 export default SalePage;
