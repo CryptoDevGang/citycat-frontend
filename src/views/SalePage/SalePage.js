@@ -110,90 +110,129 @@ const SalePage = () => {
               </Button>
             </Box>
           </Box>
-          <Box ref={saleRef} sx={{backgroundColor: "#1d1270", padding: width870 ? "5px 0px" : "60px 0px"}}>
-            <Grid container>
-              <Grid xs={12} md={6} item>
-                <img style={{width: "60%", display: "block", margin: "0px auto", marginTop: "10px"}}
+          <Box ref={saleRef} sx={{backgroundColor: "#0d0765de"}}>
+            <Grid container sx={{padding: width870 ? "5px 0px" : "50px 0px", alignItems: "center"}}>
+              <Grid xs={12} md={7} item>
+                <img style={{width: "50%", display: "block", margin: "0px auto", marginTop: "40px"}}
                      src={"/sale/gatcha.png"}/>
               </Grid>
-              <Grid xs={12} md={6} item>
-                <Card sx={{width: "95%", margin: "auto auto"}}>
+              <Grid xs={12} md={5} item>
+                <Card sx={{
+                  width: "95%",
+                  margin: "0 auto",
+                  padding: width870 ? "5px 0px" : "30px 30px",
+                  backgroundColor: "#1d1270",
+                  boxShadow: width870 ? "0 0px 2px 2px rgb(237 224 255 / 52%)" : "0 0px 5px 4px rgb(237 224 255 / 52%)"
+                }}>
                   <CardContent>
                     <Box>
-                      <Box>
-                        <Typography sx={{color: "#1d1270", fontWeight: "bold"}} variant="h3">
-                          Sale Info_
-                        </Typography>
-                        <Typography mt={1} mb={1} sx={{color: "#1d1270", fontWeight: "bold"}} variant="h5">
-                          Price: 50 STX Per CityCats NFT.
+                      <Box mb={3}>
+                        <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold"}} variant="h4">
+                          MINT NOW!
                         </Typography>
                       </Box>
+
                       <Divider sx={{backgroundColor: "white"}}/>
-                      <Box mt={4} mb={4}>
-                        <Typography mb={3} sx={{color: "#1d1270", fontWeight: "bold"}} variant="h4">
-                          NFT Sale Info
-                        </Typography>
-                        <BorderLinearProgress variant="determinate" value={100}/>
-                      </Box>
                       <Divider sx={{backgroundColor: "white"}}/>
-                      <Box mt={3} sx={{
+                      <Divider sx={{backgroundColor: "white"}}/>
+                      <Box mt={5} ml={"auto"} mr={"auto"} sx={{
                         display: "flex",
                         flexWrap: "nowrap",
-                        gap: width870 ? "auto" : "auto",
+                        gap: width870 ? "3%" : "3%",
                       }}>
                         <Button
                           sx={{
-                            flexGrow: 1
+                            flexGrow: 1,
+                            color: "white",
+                            fontSize: width870 ? "20px" : "40px",
+                            border: "2px solid white",
+                            '&': {
+                              minWidth: "50px",
+                              maxHeight: width870 ? "50px" : "100%"
+                            }
                           }}
                           onClick={() => {
                             setMintCount(1)
                           }}
+                          variant={"outlined"}
                         >
-                          <img style={{width: "100%"}} src={'/sale/mint1.png'}/>
+                          1
                         </Button>
                         <Button
                           sx={{
-                            flexGrow: 1
+                            flexGrow: 1,
+                            color: "white",
+                            fontSize: width870 ? "20px" : "40px",
+                            border: "2px solid white",
+                            '&': {
+                              minWidth: "50px",
+                              maxHeight: width870 ? "50px" : "100%"
+                            }
                           }}
                           onClick={() => {
                             setMintCount(2)
                           }}
+                          variant={"outlined"}
                         >
-                          <img style={{width: "100%"}} src={'/sale/mint2.png'}/>
+                          2
                         </Button>
                         <Button
                           sx={{
-                            flexGrow: 1
+                            flexGrow: 1,
+                            color: "white",
+                            fontSize: width870 ? "20px" : "40px",
+                            border: "2px solid white",
+                            '&': {
+                              minWidth: "50px",
+                              maxHeight: width870 ? "50px" : "100%"
+                            }
                           }}
                           onClick={() => {
                             setMintCount(3)
                           }}
+                          variant={"outlined"}
                         >
-                          <img style={{width: "100%"}} src={'/sale/mint3.png'}/>
+                          3
                         </Button>
                         <Button
                           sx={{
-                            flexGrow: 1
+                            flexGrow: 1,
+                            color: "white",
+                            fontSize: width870 ? "20px" : "40px",
+                            border: "2px solid white",
+                            '&': {
+                              minWidth: "50px",
+                              maxHeight: width870 ? "50px" : "100%"
+                            }
                           }}
                           onClick={() => {
                             setMintCount(4)
                           }}
+                          variant={"outlined"}
                         >
-                          <img style={{width: "100%"}} src={'/sale/mint4.png'}/>
+                          4
                         </Button>
                         <Button
                           sx={{
-                            flexGrow: 1
+                            flexGrow: 1,
+                            color: "white",
+                            fontSize: width870 ? "20px" : "40px",
+                            border: "2px solid white",
+                            '&': {
+                              minWidth: "50px",
+                              maxHeight: width870 ? "50px" : "100%"
+                            }
                           }}
                           onClick={() => {
                             setMintCount(5)
                           }}
+                          variant={"outlined"}
                         >
-                          <img style={{width: "100%"}} src={'/sale/mint5.png'}/>
+                          5
                         </Button>
                       </Box>
                       <Box mt={3}>
-                        <Typography sx={{textAlign: "center"}} variant={"h5"}>
+                        <Typography sx={{textAlign: "center", fontWeight: "bold"}} variant={"h4"} color={"#c5b3ff"}>
                           {mintCount}
                         </Typography>
                       </Box>
@@ -216,7 +255,7 @@ const SalePage = () => {
                             }
                           }}
                         >
-                          {connected ? "MINT" : "CONNECT"}
+                          {connected ? "MINT" : "WALLET CONNECT"}
                         </Button>
                       </Box>
                     </Box>
@@ -225,6 +264,24 @@ const SalePage = () => {
               </Grid>
             </Grid>
           </Box>
+          <Grid sx={{
+            backgroundColor: "#2d045b",
+            padding: "60px 0px",
+          }} container>
+            <Grid xs={5} md={5} sx={{textAlign: "right"}} item>
+              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870? "h5" : "h4"}>
+                Price: 50 Ӿ
+              </Typography>
+            </Grid>
+            <Grid xs={1} md={2} item>
+              <Divider sx={{margin: "auto", backgroundColor: "white", width: width870? "3px" : "5px"}} orientation="vertical"/>
+            </Grid>
+            <Grid xs={6} md={5} item>
+              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870? "h5" : "h4"}>
+                0 / 2500 MINTED
+              </Typography>
+            </Grid>
+          </Grid>
           <Box ref={aboutRef}>
             {
               width870 ? <MobileAbout isSale={true}/>
