@@ -353,6 +353,7 @@ const SalePage = () => {
                           #{value}
                         </Typography>
                         <img
+                          style={{borderRadius: "8px"}}
                           src={"https://images.stxnft.space/https://cf-ipfs.com/ipfs/QmZjrCc9836Njqw1Yx8ztM6FbJzvuZijwtZJSkKPxLTMWU/61f4eb0857f64?fit=max&w=720&q=100&cs=srgb"}/>
                       </CardContent>
                     </Card>
