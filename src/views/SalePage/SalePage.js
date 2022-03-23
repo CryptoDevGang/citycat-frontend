@@ -11,7 +11,7 @@ import {CardContent, Divider, Grid} from "@mui/material";
 import {styled} from '@mui/material/styles';
 import LinearProgress, {linearProgressClasses} from '@mui/material/LinearProgress';
 import Card from "@mui/material/Card";
-import {useConnect} from "../../connect/auth";
+import {useConnect, userSessionState} from "../../connect/auth";
 import {useSelector} from "../../store";
 import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
@@ -23,6 +23,9 @@ import {
 import {useConnect as uc, Connect} from "@stacks/connect-react";
 import {StacksTestnet} from "@stacks/network";
 import MintButton from "../../components/MintButton";
+import {useAtomValue} from "jotai";
+import {useStxAddresses} from "../../connect/hooks";
+import axios from "axios";
 
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
@@ -37,41 +40,50 @@ const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
   },
 }));
 
-const getLastTokenId = async () => {
-  const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
-  const contractName = 'citycats-nft-v10'
-  const functionName = 'get-last-token-id'
-  const network = new StacksTestnet()
-  const senderAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
-
-  const options = {
-    contractAddress,
-    contractName,
-    functionName,
-    functionArgs: [],
-    network,
-    senderAddress,
-  };
-
-  const result = await callReadOnlyFunction(options)
-  const id = cvToJSON(result).value.value;
-
-  return id;
-}
-
-
 const SalePage = () => {
   const theme = useTheme();
   const width870 = useMediaQuery('(max-width:870px)');
   const [mintCount, setMintCount] = useState(3);
   const {handleOpenAuth, handleSignOut} = useConnect();
+  const atomUserSession = useAtomValue(userSessionState);
+  const {ownerStxAddress} = useStxAddresses(atomUserSession, true);
   const {connected} = useSelector((state) => state.connect);
   const dispatch = useDispatch();
   const {authOptions, userSession} = useConnect()
   const [lastTokenId, setLastTokenId] = useState(0)
+  const [cityCats, setCityCats] = useState([])
 
   const saleRef = useRef();
   const aboutRef = useRef();
+
+  const getLastTokenId = async () => {
+    const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+    const contractName = 'citycats-nft-v10'
+    const functionName = 'get-last-token-id'
+    const network = new StacksTestnet()
+    const senderAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+
+    const options = {
+      contractAddress,
+      contractName,
+      functionName,
+      functionArgs: [],
+      network,
+      senderAddress,
+    };
+
+    const result = await callReadOnlyFunction(options)
+    const id = cvToJSON(result).value.value;
+
+    return id;
+  }
+
+  const getCityCatsHoldings = async () => {
+    console.log(ownerStxAddress)
+    const nftHoldingApi = `https://stacks-node-api.testnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}`
+    const result = await axios.get(nftHoldingApi)
+    return result.data.results
+  }
 
   useEffect(() => {
     getLastTokenId().then(id => setLastTokenId(id))
@@ -80,6 +92,14 @@ const SalePage = () => {
   useEffect(() => {
     dispatch(setConnected(userSession.isUserSignedIn()))
   }, [userSession])
+
+  useEffect(() => {
+    getCityCatsHoldings().then(nfts => {
+      let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR.citycats-nft-v10::CityCats")
+        .map(nft => nft.value.repr.replace('u', ''))
+      setCityCats(cityCatNfts)
+    })
+  }, [ownerStxAddress])
 
   return (
     <Main>
@@ -317,6 +337,26 @@ const SalePage = () => {
               </Typography>
             </Grid>
           </Grid>
+          <Box>
+            <Box>
+              My City Cats.
+            </Box>
+            <Box sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll"}}>
+              {
+                cityCats.map(value => {
+                  return (
+                    <Card sx={{flex: "0 0 auto"}}>
+                      <CardContent>
+                        <Typography>
+                          {value}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  )
+                })
+              }
+            </Box>
+          </Box>
           <Box ref={aboutRef}>
             {
               width870 ? <MobileAbout isSale={true}/>

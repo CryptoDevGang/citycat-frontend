@@ -46,6 +46,7 @@
     "@stacks/network": "^3.3.0",
     "@stacks/transactions": "^3.3.0",
     "aos": "^2.3.4",
+    "axios": "^0.26.1",
     "card-validator": "^8.1.1",
     "formik": "^2.2.6",
     "hamburger-react": "^2.4.1",

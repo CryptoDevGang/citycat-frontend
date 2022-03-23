@@ -4,7 +4,7 @@ import { getStacksAccount } from './account';
 import { mocknet, testnet } from './constants';
 import { getUserData } from "@stacks/connect";
 
-export function useStxAddresses(userSession) {
+export function useStxAddresses(userSession, isTestNet) {
   const [ownerStxAddress, setOwnerStxAddress] = useState();
   const [appStxAddress, setAppStxAddress] = useState();
   useEffect(() => {
@@ -12,7 +12,7 @@ export function useStxAddresses(userSession) {
       getUserData(userSession).then(userData => {
         const { address } = getStacksAccount(userData.appPrivateKey);
         setAppStxAddress(addressToString(address));
-        setOwnerStxAddress(userData.profile.stxAddress[testnet || mocknet ? 'testnet' : 'mainnet']);
+        setOwnerStxAddress(userData.profile.stxAddress[isTestNet || testnet || mocknet ? 'testnet' : 'mainnet']);
       });
     }
   }, [userSession]);
