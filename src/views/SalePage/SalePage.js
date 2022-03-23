@@ -337,19 +337,23 @@ const SalePage = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Box>
+          <Box sx={{padding: "30px 30px", backgroundColor: "#0d0765de"}}>
             <Box>
-              My City Cats.
+              <Typography sx={{fontWeight: "bold"}} variant={"h4"} color={"white"}>
+                My City Cats.
+              </Typography>
             </Box>
-            <Box sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll"}}>
+            <Box mt={3} sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 1}}>
               {
                 cityCats.map(value => {
                   return (
-                    <Card sx={{flex: "0 0 auto"}}>
+                    <Card sx={{flex: "0 0 auto", backgroundColor: "#6a46cf"}}>
                       <CardContent>
-                        <Typography>
-                          {value}
+                        <Typography variant={"h4"} color={"white"}>
+                          #{value}
                         </Typography>
+                        <img
+                          src={"https://images.stxnft.space/https://cf-ipfs.com/ipfs/QmZjrCc9836Njqw1Yx8ztM6FbJzvuZijwtZJSkKPxLTMWU/61f4eb0857f64?fit=max&w=720&q=100&cs=srgb"}/>
                       </CardContent>
                     </Card>
                   )
