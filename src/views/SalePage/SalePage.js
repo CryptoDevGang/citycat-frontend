@@ -16,6 +16,7 @@ import {useSelector} from "../../store";
 import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
 import {
+  callReadOnlyFunction, cvToJSON,
   FungibleConditionCode,
   makeStandardSTXPostCondition, PostConditionMode,
 } from "@stacks/transactions";
@@ -36,6 +37,29 @@ const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
   },
 }));
 
+const getLastTokenId = async () => {
+  const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+  const contractName = 'citycats-nft-v10'
+  const functionName = 'get-last-token-id'
+  const network = new StacksTestnet()
+  const senderAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+
+  const options = {
+    contractAddress,
+    contractName,
+    functionName,
+    functionArgs: [],
+    network,
+    senderAddress,
+  };
+
+  const result = await callReadOnlyFunction(options)
+  const id = cvToJSON(result).value.value;
+
+  return id;
+}
+
+
 const SalePage = () => {
   const theme = useTheme();
   const width870 = useMediaQuery('(max-width:870px)');
@@ -44,9 +68,14 @@ const SalePage = () => {
   const {connected} = useSelector((state) => state.connect);
   const dispatch = useDispatch();
   const {authOptions, userSession} = useConnect()
+  const [lastTokenId, setLastTokenId] = useState(0)
 
   const saleRef = useRef();
   const aboutRef = useRef();
+
+  useEffect(() => {
+    getLastTokenId().then(id => setLastTokenId(id))
+  })
 
   useEffect(() => {
     dispatch(setConnected(userSession.isUserSignedIn()))
@@ -284,7 +313,7 @@ const SalePage = () => {
             </Grid>
             <Grid xs={6} md={5} item>
               <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
-                0 / 2500 MINTED
+                {`${lastTokenId} / 2050 MINTED`}
               </Typography>
             </Grid>
           </Grid>
