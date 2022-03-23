@@ -15,6 +15,13 @@ import {useConnect} from "../../connect/auth";
 import {useSelector} from "../../store";
 import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
+import {
+  FungibleConditionCode,
+  makeStandardSTXPostCondition, PostConditionMode,
+} from "@stacks/transactions";
+import {useConnect as uc, Connect} from "@stacks/connect-react";
+import {StacksTestnet} from "@stacks/network";
+import MintButton from "../../components/MintButton";
 
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
@@ -28,10 +35,6 @@ const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
     background: 'linear-gradient(to right, #7f00ff, #e100ff)',
   },
 }));
-
-const doMint = (mintCount) => {
-  alert('do Mint!!!' + mintCount)
-}
 
 const SalePage = () => {
   const theme = useTheme();
@@ -237,26 +240,28 @@ const SalePage = () => {
                         </Typography>
                       </Box>
                       <Box mt={2} sx={{width: "100%", textAlign: "center"}}>
-                        <Button
-                          variant={"contained"}
-                          sx={{
-                            backgroundColor: "#663ff1",
-                            padding: width870 ? "0px 0px" : "10px 20px",
-                            fontSize: width870 ? "1rem" : "20px",
-                            fontWeight: "bold",
-                            minWidth: width870 ? "50%" : "15%",
-                            color: "white"
-                          }}
-                          onClick={() => {
-                            if (!connected) {
-                              handleOpenAuth()
-                            } else {
-                              doMint(mintCount)
-                            }
-                          }}
-                        >
-                          {connected ? "MINT" : "WALLET CONNECT"}
-                        </Button>
+                        {
+                          connected ?
+                            <Connect authOptions={authOptions}>
+                              <MintButton mintCount={mintCount}/>
+                            </Connect> :
+                            <Button
+                              variant={"contained"}
+                              sx={{
+                                backgroundColor: "#663ff1",
+                                padding: width870 ? "0px 0px" : "10px 20px",
+                                fontSize: width870 ? "1rem" : "20px",
+                                fontWeight: "bold",
+                                minWidth: width870 ? "50%" : "15%",
+                                color: "white"
+                              }}
+                              onClick={() => {
+                                handleOpenAuth()
+                              }}
+                            >
+                              WALLET CONNECT
+                            </Button>
+                        }
                       </Box>
                     </Box>
                   </CardContent>
@@ -269,15 +274,16 @@ const SalePage = () => {
             padding: "60px 0px",
           }} container>
             <Grid xs={5} md={5} sx={{textAlign: "right"}} item>
-              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870? "h5" : "h4"}>
+              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
                 Price: 50 Ӿ
               </Typography>
             </Grid>
             <Grid xs={1} md={2} item>
-              <Divider sx={{margin: "auto", backgroundColor: "white", width: width870? "3px" : "5px"}} orientation="vertical"/>
+              <Divider sx={{margin: "auto", backgroundColor: "white", width: width870 ? "3px" : "5px"}}
+                       orientation="vertical"/>
             </Grid>
             <Grid xs={6} md={5} item>
-              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870? "h5" : "h4"}>
+              <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
                 0 / 2500 MINTED
               </Typography>
             </Grid>
