@@ -69,7 +69,7 @@ const MintButton = (props) => {
           padding: width870 ? "0px 0px" : "10px 20px",
           fontSize: width870 ? "1rem" : "25px",
           fontWeight: "bold",
-          minWidth: width870 ? "50%" : "25%",
+          minWidth: width870 ? "40%" : "25%",
           color: "white"
         }}
         onClick={() => {
