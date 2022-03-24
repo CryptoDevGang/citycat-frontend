@@ -176,7 +176,8 @@ const SalePage = () => {
                       margin: "0 auto",
                       padding: width870 ? "5px 0px" : "30px 30px",
                       backgroundColor: "#1d1270",
-                      boxShadow: width870 ? "0 0px 2px 2px rgb(237 224 255 / 52%)" : "0 0px 5px 4px rgb(237 224 255 / 52%)"
+                      border: "3px solid white"
+                      // boxShadow: width870 ? "0 0px 2px 2px rgb(237 224 255 / 52%)" : "0 0px 5px 4px rgb(237 224 255 / 52%)"
                     }}>
                       <CardContent>
                         <Box>
@@ -292,7 +293,7 @@ const SalePage = () => {
                           </Box>
                           <Box mt={3}>
                             <Typography sx={{textAlign: "center", fontWeight: "bold"}} variant={"h4"} color={"#c5b3ff"}>
-                              {mintCount}
+                              {mintCount} Cats.
                             </Typography>
                           </Box>
                           <Box mt={2} sx={{width: "100%", textAlign: "center"}}>
@@ -362,7 +363,7 @@ const SalePage = () => {
                           <Box>
                             <img
                               style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
-                              src={"https://images.stxnft.space/https://cf-ipfs.com/ipfs/QmZjrCc9836Njqw1Yx8ztM6FbJzvuZijwtZJSkKPxLTMWU/61f4eb0857f64?fit=max&w=720&q=100&cs=srgb"}/>
+                              src={"/sale/sample.png"}/>
                           </Box>
                           <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"} color={"white"}>
                             #{value}

@@ -65,7 +65,7 @@ const MintButton = (props) => {
       <Button
         variant={"contained"}
         sx={{
-          backgroundColor: "#663ff1",
+          backgroundColor: "#00a7bf",
           padding: width870 ? "0px 0px" : "10px 20px",
           fontSize: width870 ? "1rem" : "25px",
           fontWeight: "bold",
