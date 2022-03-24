@@ -67,9 +67,9 @@ const MintButton = (props) => {
         sx={{
           backgroundColor: "#663ff1",
           padding: width870 ? "0px 0px" : "10px 20px",
-          fontSize: width870 ? "1rem" : "20px",
+          fontSize: width870 ? "1rem" : "25px",
           fontWeight: "bold",
-          minWidth: width870 ? "50%" : "15%",
+          minWidth: width870 ? "50%" : "25%",
           color: "white"
         }}
         onClick={() => {

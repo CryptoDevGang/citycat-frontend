@@ -162,165 +162,174 @@ const SalePage = () => {
               </Button>
             </Box>
           </Box>
-          <Box ref={saleRef} sx={{backgroundColor: "#0d0765de"}}>
-            <Grid container sx={{padding: width870 ? "5px 0px" : "50px 0px", alignItems: "center"}}>
-              <Grid xs={12} md={7} item>
-                <img style={{width: "50%", display: "block", margin: "0px auto", marginTop: "40px"}}
-                     src={"/sale/gatcha.png"}/>
-              </Grid>
-              <Grid xs={12} md={5} item>
-                <Card sx={{
-                  width: "95%",
-                  margin: "0 auto",
-                  padding: width870 ? "5px 0px" : "30px 30px",
-                  backgroundColor: "#1d1270",
-                  boxShadow: width870 ? "0 0px 2px 2px rgb(237 224 255 / 52%)" : "0 0px 5px 4px rgb(237 224 255 / 52%)"
-                }}>
-                  <CardContent>
-                    <Box>
-                      <Box mb={3}>
-                        <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold"}} variant="h4">
-                          MINT NOW!
-                        </Typography>
-                      </Box>
+          <Box sx={{backgroundColor: "#1d1e6f"}}>
+            <Container maxWidth="xl">
+              <Box ref={saleRef}>
+                <Grid container sx={{padding: width870 ? "5px 0px" : "50px 0px", alignItems: "center"}}>
+                  <Grid xs={12} md={7} item>
+                    <img style={{width: "50%", display: "block", margin: "0px auto", marginTop: "40px"}}
+                         src={"/sale/gatcha.png"}/>
+                  </Grid>
+                  <Grid sx={{marginLeft: width870? "0px" : "-80px"}} xs={12} md={5} item>
+                    <Card sx={{
+                      width: "95%",
+                      margin: "0 auto",
+                      padding: width870 ? "5px 0px" : "30px 30px",
+                      backgroundColor: "#1d1270",
+                      boxShadow: width870 ? "0 0px 2px 2px rgb(237 224 255 / 52%)" : "0 0px 5px 4px rgb(237 224 255 / 52%)"
+                    }}>
+                      <CardContent>
+                        <Box>
+                          <Box mb={3}>
+                            <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold", textAlign:"center"}} variant="h4">
+                              MINT NOW!
+                            </Typography>
+                          </Box>
 
-                      <Divider sx={{backgroundColor: "white"}}/>
-                      <Divider sx={{backgroundColor: "white"}}/>
-                      <Divider sx={{backgroundColor: "white"}}/>
-                      <Box mt={5} ml={"auto"} mr={"auto"} sx={{
-                        display: "flex",
-                        flexWrap: "nowrap",
-                        gap: width870 ? "3%" : "3%",
-                      }}>
-                        <Button
-                          sx={{
-                            flexGrow: 1,
-                            color: "white",
-                            fontSize: width870 ? "20px" : "40px",
-                            border: "2px solid white",
-                            '&': {
-                              minWidth: "50px",
-                              maxHeight: width870 ? "50px" : "100%"
-                            }
-                          }}
-                          onClick={() => {
-                            setMintCount(1)
-                          }}
-                          variant={"outlined"}
-                        >
-                          1
-                        </Button>
-                        <Button
-                          sx={{
-                            flexGrow: 1,
-                            color: "white",
-                            fontSize: width870 ? "20px" : "40px",
-                            border: "2px solid white",
-                            '&': {
-                              minWidth: "50px",
-                              maxHeight: width870 ? "50px" : "100%"
-                            }
-                          }}
-                          onClick={() => {
-                            setMintCount(2)
-                          }}
-                          variant={"outlined"}
-                        >
-                          2
-                        </Button>
-                        <Button
-                          sx={{
-                            flexGrow: 1,
-                            color: "white",
-                            fontSize: width870 ? "20px" : "40px",
-                            border: "2px solid white",
-                            '&': {
-                              minWidth: "50px",
-                              maxHeight: width870 ? "50px" : "100%"
-                            }
-                          }}
-                          onClick={() => {
-                            setMintCount(3)
-                          }}
-                          variant={"outlined"}
-                        >
-                          3
-                        </Button>
-                        <Button
-                          sx={{
-                            flexGrow: 1,
-                            color: "white",
-                            fontSize: width870 ? "20px" : "40px",
-                            border: "2px solid white",
-                            '&': {
-                              minWidth: "50px",
-                              maxHeight: width870 ? "50px" : "100%"
-                            }
-                          }}
-                          onClick={() => {
-                            setMintCount(4)
-                          }}
-                          variant={"outlined"}
-                        >
-                          4
-                        </Button>
-                        <Button
-                          sx={{
-                            flexGrow: 1,
-                            color: "white",
-                            fontSize: width870 ? "20px" : "40px",
-                            border: "2px solid white",
-                            '&': {
-                              minWidth: "50px",
-                              maxHeight: width870 ? "50px" : "100%"
-                            }
-                          }}
-                          onClick={() => {
-                            setMintCount(5)
-                          }}
-                          variant={"outlined"}
-                        >
-                          5
-                        </Button>
-                      </Box>
-                      <Box mt={3}>
-                        <Typography sx={{textAlign: "center", fontWeight: "bold"}} variant={"h4"} color={"#c5b3ff"}>
-                          {mintCount}
-                        </Typography>
-                      </Box>
-                      <Box mt={2} sx={{width: "100%", textAlign: "center"}}>
-                        {
-                          connected ?
-                            <Connect authOptions={authOptions}>
-                              <MintButton mintCount={mintCount}/>
-                            </Connect> :
+                          <Divider sx={{backgroundColor: "white"}}/>
+                          <Divider sx={{backgroundColor: "white"}}/>
+                          <Divider sx={{backgroundColor: "white"}}/>
+                          <Box mt={5} ml={"auto"} mr={"auto"} sx={{
+                            display: "flex",
+                            flexWrap: "nowrap",
+                            gap: width870 ? "3%" : "3%",
+                          }}>
                             <Button
-                              variant={"contained"}
                               sx={{
-                                backgroundColor: "#663ff1",
-                                padding: width870 ? "0px 0px" : "10px 20px",
-                                fontSize: width870 ? "1rem" : "20px",
-                                fontWeight: "bold",
-                                minWidth: width870 ? "50%" : "15%",
-                                color: "white"
+                                flexGrow: 1,
+                                color: "white",
+                                fontSize: width870 ? "20px" : "30px",
+                                border: "2px solid white",
+                                '&': {
+                                  minWidth: "30px",
+                                  padding: width870? "10px 15px" : "5px 5px",
+                                  maxHeight: width870 ? "50px" : "100%"
+                                }
                               }}
                               onClick={() => {
-                                handleOpenAuth()
+                                setMintCount(1)
                               }}
+                              variant={"outlined"}
                             >
-                              WALLET CONNECT
+                              1
                             </Button>
-                        }
-                      </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            </Grid>
+                            <Button
+                              sx={{
+                                flexGrow: 1,
+                                color: "white",
+                                fontSize: width870 ? "20px" : "30px",
+                                border: "2px solid white",
+                                '&': {
+                                  minWidth: "30px",
+                                  padding: width870? "10px 15px" : "5px 5px",
+                                  maxHeight: width870 ? "50px" : "100%"
+                                }
+                              }}
+                              onClick={() => {
+                                setMintCount(2)
+                              }}
+                              variant={"outlined"}
+                            >
+                              2
+                            </Button>
+                            <Button
+                              sx={{
+                                flexGrow: 1,
+                                color: "white",
+                                fontSize: width870 ? "20px" : "30px",
+                                border: "2px solid white",
+                                '&': {
+                                  minWidth: "30px",
+                                  padding: width870? "10px 15px" : "5px 5px",
+                                  maxHeight: width870 ? "50px" : "100%"
+                                }
+                              }}
+                              onClick={() => {
+                                setMintCount(3)
+                              }}
+                              variant={"outlined"}
+                            >
+                              3
+                            </Button>
+                            <Button
+                              sx={{
+                                flexGrow: 1,
+                                color: "white",
+                                fontSize: width870 ? "20px" : "30px",
+                                border: "2px solid white",
+                                '&': {
+                                  minWidth: "30px",
+                                  padding: width870? "10px 15px" : "5px 5px",
+                                  maxHeight: width870 ? "50px" : "100%"
+                                }
+                              }}
+                              onClick={() => {
+                                setMintCount(4)
+                              }}
+                              variant={"outlined"}
+                            >
+                              4
+                            </Button>
+                            <Button
+                              sx={{
+                                flexGrow: 1,
+                                color: "white",
+                                fontSize: width870 ? "20px" : "30px",
+                                border: "2px solid white",
+                                '&': {
+                                  minWidth: "30px",
+                                  padding: width870? "10px 15px" : "5px 5px",
+                                  maxHeight: width870 ? "50px" : "100%"
+                                }
+                              }}
+                              onClick={() => {
+                                setMintCount(5)
+                              }}
+                              variant={"outlined"}
+                            >
+                              5
+                            </Button>
+                          </Box>
+                          <Box mt={3}>
+                            <Typography sx={{textAlign: "center", fontWeight: "bold"}} variant={"h4"} color={"#c5b3ff"}>
+                              {mintCount}
+                            </Typography>
+                          </Box>
+                          <Box mt={2} sx={{width: "100%", textAlign: "center"}}>
+                            {
+                              connected ?
+                                <Connect authOptions={authOptions}>
+                                  <MintButton mintCount={mintCount}/>
+                                </Connect> :
+                                <Button
+                                  variant={"contained"}
+                                  sx={{
+                                    backgroundColor: "#663ff1",
+                                    padding: width870 ? "0px 0px" : "10px 20px",
+                                    fontSize: width870 ? "1rem" : "20px",
+                                    fontWeight: "bold",
+                                    minWidth: width870 ? "50%" : "15%",
+                                    color: "white"
+                                  }}
+                                  onClick={() => {
+                                    handleOpenAuth()
+                                  }}
+                                >
+                                  WALLET CONNECT
+                                </Button>
+                            }
+                          </Box>
+                        </Box>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                </Grid>
+              </Box>
+            </Container>
           </Box>
           <Grid sx={{
-            backgroundColor: "#2d045b",
-            padding: "60px 0px",
+            backgroundColor: "#d791cf",
+            padding: "40px 0px",
           }} container>
             <Grid xs={5} md={5} sx={{textAlign: "right"}} item>
               <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
@@ -337,30 +346,34 @@ const SalePage = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Box sx={{padding: "30px 30px", backgroundColor: "#0d0765de"}}>
-            <Box>
-              <Typography sx={{fontWeight: "bold"}} variant={"h4"} color={"white"}>
-                My City Cats.
-              </Typography>
-            </Box>
-            <Box mt={3} sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 1}}>
-              {
-                cityCats.map(value => {
-                  return (
-                    <Card sx={{flex: "0 0 auto", backgroundColor: "#6a46cf"}}>
-                      <CardContent>
-                        <Typography variant={"h4"} color={"white"}>
-                          #{value}
-                        </Typography>
-                        <img
-                          style={{borderRadius: "8px"}}
-                          src={"https://images.stxnft.space/https://cf-ipfs.com/ipfs/QmZjrCc9836Njqw1Yx8ztM6FbJzvuZijwtZJSkKPxLTMWU/61f4eb0857f64?fit=max&w=720&q=100&cs=srgb"}/>
-                      </CardContent>
-                    </Card>
-                  )
-                })
-              }
-            </Box>
+          <Box sx={{backgroundColor: "#1d1e6f"}}>
+            <Container maxWidth={"xl"}>
+              <Box sx={{padding: "30px 30px"}}>
+                <Box>
+                  <Typography sx={{fontWeight: "bold", textAlign: "center"}} variant={"h4"} color={"white"}>
+                    My City Cats.
+                  </Typography>
+                </Box>
+                <Box mt={3} sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2, padding: "10px 0px"}}>
+                  {
+                    cityCats.map(value => {
+                      return (
+                        <Card sx={{flex: "0 0 auto", backgroundColor: "transparent", boxShadow: "none"}}>
+                          <Box>
+                            <img
+                              style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
+                              src={"https://images.stxnft.space/https://cf-ipfs.com/ipfs/QmZjrCc9836Njqw1Yx8ztM6FbJzvuZijwtZJSkKPxLTMWU/61f4eb0857f64?fit=max&w=720&q=100&cs=srgb"}/>
+                          </Box>
+                          <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"} color={"white"}>
+                            #{value}
+                          </Typography>
+                        </Card>
+                      )
+                    })
+                  }
+                </Box>
+              </Box>
+            </Container>
           </Box>
           <Box ref={aboutRef}>
             {
