@@ -113,8 +113,8 @@ const SalePage = () => {
       >
         <Container>
           <Box sx={{display: "flex", position: "relative"}}>
-            <img style={{width: '100%'}} src={"/sale_background.jpeg"}/>
-            <Box sx={{width: "100%", position: "absolute", bottom: "20%", right: "auto", textAlign: "center"}}>
+            <img style={{width: '100%'}} src={width870? "/sale_background_mo.jpeg" : "/sale_background.jpeg"}/>
+            <Box sx={{width: "100%", position: "absolute", bottom: width870? "17%" : "20%", right: "auto", textAlign: "center"}}>
               <Button
                 onClick={() => {
                   saleRef.current.scrollIntoView({behavior: 'smooth', block: "center", inline: "nearest"})
@@ -124,9 +124,9 @@ const SalePage = () => {
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   padding: width870 ? "0px 0px" : "10px 20px",
-                  fontSize: width870 ? "0.5rem" : "25px",
+                  fontSize: width870 ? "1.2rem" : "25px",
                   fontWeight: "bold",
-                  minWidth: "15%",
+                  minWidth: width870 ? "25%" : "15%",
                   color: "white"
                 }}
               >
@@ -152,9 +152,9 @@ const SalePage = () => {
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                   padding: width870 ? "0px 0px" : "10px 20px",
-                  fontSize: width870 ? "0.5rem" : "25px",
+                  fontSize: width870 ? "1.2rem" : "25px",
                   fontWeight: "bold",
-                  minWidth: "15%",
+                  minWidth: width870 ? "25%" : "15%",
                   color: "white"
                 }}
               >
@@ -162,7 +162,7 @@ const SalePage = () => {
               </Button>
             </Box>
           </Box>
-          <Box sx={{backgroundColor: "#1d1e6f"}}>
+          <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870? "30px" : "0px"}}>
             <Container maxWidth="xl">
               <Box ref={saleRef}>
                 <Grid container sx={{padding: width870 ? "5px 0px" : "50px 0px", alignItems: "center"}}>
@@ -330,7 +330,7 @@ const SalePage = () => {
           </Box>
           <Grid sx={{
             backgroundColor: "#d791cf",
-            padding: "40px 0px",
+            padding: width870? "20px 0px" : "40px 0px",
           }} container>
             <Grid xs={5} md={5} sx={{textAlign: "right"}} item>
               <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
