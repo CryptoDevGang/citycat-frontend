@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {useTheme} from '@mui/material/styles';
+import {styled, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Main from 'layouts/Main';
 import Container from 'components/Container';
@@ -8,19 +8,14 @@ import Button from "@mui/material/Button";
 import {About, MobileAbout} from "../About/components";
 import Typography from "@mui/material/Typography";
 import {CardContent, Divider, Grid} from "@mui/material";
-import {styled} from '@mui/material/styles';
 import LinearProgress, {linearProgressClasses} from '@mui/material/LinearProgress';
 import Card from "@mui/material/Card";
 import {useConnect, userSessionState} from "../../connect/auth";
 import {useSelector} from "../../store";
 import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
-import {
-  callReadOnlyFunction, cvToJSON,
-  FungibleConditionCode,
-  makeStandardSTXPostCondition, PostConditionMode,
-} from "@stacks/transactions";
-import {useConnect as uc, Connect} from "@stacks/connect-react";
+import {callReadOnlyFunction, cvToJSON,} from "@stacks/transactions";
+import {Connect} from "@stacks/connect-react";
 import {StacksTestnet} from "@stacks/network";
 import MintButton from "../../components/MintButton";
 import {useAtomValue} from "jotai";
@@ -113,8 +108,14 @@ const SalePage = () => {
       >
         <Container>
           <Box sx={{display: "flex", position: "relative"}}>
-            <img style={{width: '100%'}} src={width870? "/sale_background_mo.jpeg" : "/sale_background.jpeg"}/>
-            <Box sx={{width: "100%", position: "absolute", bottom: width870? "17%" : "20%", right: "auto", textAlign: "center"}}>
+            <img style={{width: '100%'}} src={width870 ? "/sale_background_mo.jpeg" : "/sale_background.jpeg"}/>
+            <Box sx={{
+              width: "100%",
+              position: "absolute",
+              bottom: width870 ? "17%" : "20%",
+              right: "auto",
+              textAlign: "center"
+            }}>
               <Button
                 onClick={() => {
                   saleRef.current.scrollIntoView({behavior: 'smooth', block: "center", inline: "nearest"})
@@ -162,7 +163,7 @@ const SalePage = () => {
               </Button>
             </Box>
           </Box>
-          <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870? "30px" : "0px"}}>
+          <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
             <Container maxWidth="xl">
               <Box ref={saleRef}>
                 <Grid container sx={{padding: width870 ? "5px 0px" : "50px 0px", alignItems: "center"}}>
@@ -170,7 +171,7 @@ const SalePage = () => {
                     <img style={{width: "50%", display: "block", margin: "0px auto", marginTop: "40px"}}
                          src={"/sale/gatcha.png"}/>
                   </Grid>
-                  <Grid sx={{marginLeft: width870? "0px" : "-80px"}} xs={12} md={5} item>
+                  <Grid sx={{marginLeft: width870 ? "0px" : "-80px"}} xs={12} md={5} item>
                     <Card sx={{
                       width: "95%",
                       margin: "0 auto",
@@ -182,7 +183,8 @@ const SalePage = () => {
                       <CardContent>
                         <Box>
                           <Box mb={3}>
-                            <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold", textAlign:"center"}} variant="h4">
+                            <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
+                                        variant="h4">
                               MINT NOW!
                             </Typography>
                           </Box>
@@ -203,7 +205,7 @@ const SalePage = () => {
                                 border: "2px solid white",
                                 '&': {
                                   minWidth: "30px",
-                                  padding: width870? "10px 15px" : "5px 5px",
+                                  padding: width870 ? "10px 15px" : "5px 5px",
                                   maxHeight: width870 ? "50px" : "100%"
                                 }
                               }}
@@ -222,7 +224,7 @@ const SalePage = () => {
                                 border: "2px solid white",
                                 '&': {
                                   minWidth: "30px",
-                                  padding: width870? "10px 15px" : "5px 5px",
+                                  padding: width870 ? "10px 15px" : "5px 5px",
                                   maxHeight: width870 ? "50px" : "100%"
                                 }
                               }}
@@ -241,7 +243,7 @@ const SalePage = () => {
                                 border: "2px solid white",
                                 '&': {
                                   minWidth: "30px",
-                                  padding: width870? "10px 15px" : "5px 5px",
+                                  padding: width870 ? "10px 15px" : "5px 5px",
                                   maxHeight: width870 ? "50px" : "100%"
                                 }
                               }}
@@ -260,7 +262,7 @@ const SalePage = () => {
                                 border: "2px solid white",
                                 '&': {
                                   minWidth: "30px",
-                                  padding: width870? "10px 15px" : "5px 5px",
+                                  padding: width870 ? "10px 15px" : "5px 5px",
                                   maxHeight: width870 ? "50px" : "100%"
                                 }
                               }}
@@ -279,7 +281,7 @@ const SalePage = () => {
                                 border: "2px solid white",
                                 '&': {
                                   minWidth: "30px",
-                                  padding: width870? "10px 15px" : "5px 5px",
+                                  padding: width870 ? "10px 15px" : "5px 5px",
                                   maxHeight: width870 ? "50px" : "100%"
                                 }
                               }}
@@ -330,7 +332,7 @@ const SalePage = () => {
           </Box>
           <Grid sx={{
             backgroundColor: "#d791cf",
-            padding: width870? "20px 0px" : "40px 0px",
+            padding: width870 ? "20px 0px" : "40px 0px",
           }} container>
             <Grid xs={5} md={5} sx={{textAlign: "right"}} item>
               <Typography sx={{color: "#ffffff", fontWeight: "bold"}} variant={width870 ? "h5" : "h4"}>
@@ -355,22 +357,35 @@ const SalePage = () => {
                     My City Cats.
                   </Typography>
                 </Box>
-                <Box mt={3} sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2, padding: "10px 0px"}}>
+                <Box mt={3}
+                     sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2, padding: "10px 0px", justifyContent: cityCats.length < 5 ? "center" : "start"}}>
                   {
-                    cityCats.map(value => {
-                      return (
-                        <Card sx={{flex: "0 0 auto", backgroundColor: "transparent", boxShadow: "none"}}>
-                          <Box>
-                            <img
-                              style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
-                              src={"/sale/sample.png"}/>
-                          </Box>
-                          <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"} color={"white"}>
-                            #{value}
-                          </Typography>
-                        </Card>
-                      )
-                    })
+                    cityCats.length > 0 ?
+                      cityCats.map(value => {
+                        return (
+                          <Card sx={{flex: "0 0 auto", backgroundColor: "transparent", boxShadow: "none"}}>
+                            <Box>
+                              <img
+                                style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
+                                src={"/sale/sample.png"}/>
+                            </Box>
+                            <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"}
+                                        color={"white"}>
+                              #{value}
+                            </Typography>
+                          </Card>
+                        )
+                      })
+                      : <Card sx={{flex: "0 0 auto", backgroundColor: "transparent", boxShadow: "none"}}>
+                        <Box>
+                          <img
+                            style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
+                            src={"/sale/no_citycats.png"}/>
+                        </Box>
+                        <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"} color={"white"}>
+                          Mint Now.
+                        </Typography>
+                      </Card>
                   }
                 </Box>
               </Box>

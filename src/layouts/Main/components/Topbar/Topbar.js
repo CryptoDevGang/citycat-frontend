@@ -5,13 +5,19 @@ import {useTheme} from '@mui/material/styles';
 import Hamburger from 'hamburger-react'
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {Container} from "@mui/material";
+import Button from "@mui/material/Button";
+import {useSelector} from "../../../../store";
+import {useConnect} from "../../../../connect/auth";
 
 const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
   const {mode} = theme.palette;
+  const width870 = useMediaQuery('(max-width:870px)');
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
+  const {handleOpenAuth, handleSignOut} = useConnect();
+  const {connected} = useSelector((state) => state.connect);
 
   return (
     <Box
@@ -42,7 +48,14 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
               width={1}
             />
           </Box>
-          <Box alignItems={'center'}>
+          <Box sx={{display: "flex"}} alignItems={'center'}>
+            <Button sx={{marginRight: width870? "0px" : "40px", fontSize: width870? "10px" : "1rem", color: "white", fontWeight: "bold", border: "1px solid white"}}
+                    variant={"outlined"}
+                    onClick={() => {
+                      connected? handleSignOut() : handleOpenAuth()
+                    }}>
+              {connected ? "Disconnect" : "Connect Wallet"}
+            </Button>
             <Hamburger toggled={openSidebar} toggle={onSidebarOpen} distance={"sm"} size={isMd ? 48 : 30} rounded
                        hideOutline={true}/>
           </Box>
