@@ -52,6 +52,7 @@
     "hamburger-react": "^2.4.1",
     "jarallax": "^1.12.7",
     "jotai": "^1.6.1",
+    "json-bigint": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-burger-menu": "^3.0.6",

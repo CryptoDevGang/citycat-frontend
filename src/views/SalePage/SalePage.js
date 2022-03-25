@@ -14,7 +14,7 @@ import {useConnect, userSessionState} from "../../connect/auth";
 import {useSelector} from "../../store";
 import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
-import {callReadOnlyFunction, cvToJSON,} from "@stacks/transactions";
+import {callReadOnlyFunction, cvToJSON, uintCV,} from "@stacks/transactions";
 import {Connect} from "@stacks/connect-react";
 import {StacksTestnet} from "@stacks/network";
 import MintButton from "../../components/MintButton";
@@ -54,9 +54,10 @@ const SalePage = () => {
   const scrollAreaRef = useRef();
   const {onMouseDown} = useDraggableScroll(scrollAreaRef, {direction: 'horizontal'})
 
+  const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+  const contractName = 'citycats-nft-v10'
+
   const getLastTokenId = async () => {
-    const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
-    const contractName = 'citycats-nft-v10'
     const functionName = 'get-last-token-id'
     const network = new StacksTestnet()
     const senderAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
@@ -77,7 +78,6 @@ const SalePage = () => {
   }
 
   const getCityCatsHoldings = async () => {
-    console.log(ownerStxAddress)
     const nftHoldingApi = `https://stacks-node-api.testnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}`
     const result = await axios.get(nftHoldingApi)
     return result.data.results
@@ -92,12 +92,19 @@ const SalePage = () => {
   }, [userSession])
 
   useEffect(() => {
-    getCityCatsHoldings().then(nfts => {
-      let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR.citycats-nft-v10::CityCats")
-        .map(nft => nft.value.repr.replace('u', ''))
-      setCityCats(cityCatNfts)
-    })
+    if (ownerStxAddress) {
+      getCityCatsHoldings().then(nfts => {
+        let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR.citycats-nft-v10::CityCats")
+          .map(nft => nft.value.repr.replace('u', ''))
+        setCityCats(cityCatNfts)
+      })
+    }
   }, [ownerStxAddress])
+
+  const getCityCatsImageUrl = (number) => {
+    let url = `https://cf-ipfs.com/ipfs/QmRnn99xq42CYheaGkf9ZEJHdB4deFesNsQUzEeuZRXkTn`
+    return url;
+  }
 
   return (
     <Main>
@@ -363,7 +370,8 @@ const SalePage = () => {
                 <Box mt={3}
                      ref={scrollAreaRef}
                      onMouseDown={onMouseDown}
-                     sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2,
+                     sx={{
+                       display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2,
                        padding: "10px 0px", justifyContent: cityCats.length < 4 ? "center" : "start",
                        '&::-webkit-scrollbar': {
                          width: '0.4em'
@@ -386,7 +394,7 @@ const SalePage = () => {
                             <Box>
                               <img
                                 style={{maxWidth: "300px", borderRadius: "12px", border: "7px solid black"}}
-                                src={"/sale/sample.png"}/>
+                                src={getCityCatsImageUrl(value)}/>
                             </Box>
                             <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"}
                                         color={"white"}>
