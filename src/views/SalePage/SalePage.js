@@ -21,6 +21,7 @@ import MintButton from "../../components/MintButton";
 import {useAtomValue} from "jotai";
 import {useStxAddresses} from "../../connect/hooks";
 import axios from "axios";
+import useDraggableScroll from "use-draggable-scroll";
 
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
@@ -50,6 +51,8 @@ const SalePage = () => {
 
   const saleRef = useRef();
   const aboutRef = useRef();
+  const scrollAreaRef = useRef();
+  const {onMouseDown} = useDraggableScroll(scrollAreaRef, {direction: 'horizontal'})
 
   const getLastTokenId = async () => {
     const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
@@ -358,7 +361,23 @@ const SalePage = () => {
                   </Typography>
                 </Box>
                 <Box mt={3}
-                     sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2, padding: "10px 0px", justifyContent: cityCats.length < 5 ? "center" : "start"}}>
+                     ref={scrollAreaRef}
+                     onMouseDown={onMouseDown}
+                     sx={{display: "flex", flexWrap: "no-wrap", overflowX: "scroll", gap: 2,
+                       padding: "10px 0px", justifyContent: cityCats.length < 4 ? "center" : "start",
+                       '&::-webkit-scrollbar': {
+                         width: '0.4em'
+                       },
+                       '&::-webkit-scrollbar-track': {
+                         boxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)',
+                         webkitBoxShadow: 'inset 0 0 6px rgba(0,0,0,0.00)'
+                       },
+                       '&::-webkit-scrollbar-thumb': {
+                         backgroundColor: 'rgba(0,0,0,0.1)',
+                         outline: '1px solid #cccccc',
+                         borderRadius: "5px"
+                       }
+                     }}>
                   {
                     cityCats.length > 0 ?
                       cityCats.map(value => {
