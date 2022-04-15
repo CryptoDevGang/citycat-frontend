@@ -78,9 +78,20 @@ const SalePage = () => {
   }
 
   const getCityCatsHoldings = async () => {
-    const nftHoldingApi = `https://stacks-node-api.testnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}`
-    const result = await axios.get(nftHoldingApi)
-    return result.data.results
+    let offset = 0
+    let limit = 50
+    let results = []
+    while(true){
+      const nftHoldingApi = `https://stacks-node-api.testnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}&offset=${offset}&limit=${limit}`
+      const result = await axios.get(nftHoldingApi)
+      if(result.data.results.length === 0){
+        break;
+      }
+      results.push(...result.data.results)
+      offset += 50
+    }
+
+    return results
   }
 
   useEffect(() => {
