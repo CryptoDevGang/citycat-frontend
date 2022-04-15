@@ -102,7 +102,7 @@ const SalePage = () => {
   }, [ownerStxAddress])
 
   const getCityCatsImageUrl = (number) => {
-    let url = `https://cf-ipfs.com/ipfs/QmRnn99xq42CYheaGkf9ZEJHdB4deFesNsQUzEeuZRXkTn`
+    let url = `https://nfpstudio.io/resource/image-reveal/${number}.png`
     return url;
   }
 
