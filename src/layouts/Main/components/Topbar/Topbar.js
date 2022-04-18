@@ -8,6 +8,8 @@ import {Container} from "@mui/material";
 import Button from "@mui/material/Button";
 import {useSelector} from "../../../../store";
 import {useConnect} from "../../../../connect/auth";
+import {setConnected} from "../../../../slices/connect";
+import {useDispatch} from "react-redux";
 
 const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
   const theme = useTheme();
@@ -17,7 +19,13 @@ const Topbar = ({openSidebar, onSidebarOpen, pages, colorInvert = false}) => {
     defaultMatches: true,
   });
   const {handleOpenAuth, handleSignOut} = useConnect();
+  const {authOptions, userSession} = useConnect()
   const {connected} = useSelector((state) => state.connect);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setConnected(userSession.isUserSignedIn()))
+  }, [userSession])
 
   return (
     <Box
