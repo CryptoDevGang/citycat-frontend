@@ -206,7 +206,7 @@ const SalePage = () => {
                           <Box mb={3}>
                             <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                                         variant="h4">
-                              MINT NOW!
+                              UNBOX YOUR KITTY!
                             </Typography>
                           </Box>
 
