@@ -134,7 +134,7 @@ const SalePage = () => {
   }, [ownerStxAddress])
 
   const getCityCatsImageUrl = (number) => {
-    let url = `https://nfpstudio.io/resource/image-reveal/${number}.png`
+    let url = `https://ipfs.io/ipfs/QmPRfB68NKVJ3v3hTdGWfLVAXw8Ak1Gy5ZX7r99LRD1M2V/${number}.png`
     return url;
   }
 
@@ -248,7 +248,7 @@ const SalePage = () => {
                           <Box mb={3}>
                             <Typography mb={3} sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                                         variant="h4">
-                              MINT NOW!
+                              UNBOX YOUR KITTY!
                             </Typography>
                           </Box>
 
