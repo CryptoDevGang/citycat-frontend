@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Button from "@mui/material/Button";
 import {About, MobileAbout} from "../About/components";
 import Typography from "@mui/material/Typography";
-import {CardContent, Divider, Grid} from "@mui/material";
+import {CardContent, colors, Divider, Grid} from "@mui/material";
 import LinearProgress, {linearProgressClasses} from '@mui/material/LinearProgress';
 import Card from "@mui/material/Card";
 import {useConnect, userSessionState} from "../../connect/auth";
@@ -22,6 +22,7 @@ import {useAtomValue} from "jotai";
 import {useStxAddresses} from "../../connect/hooks";
 import axios from "axios";
 import useDraggableScroll from "use-draggable-scroll";
+import whitelistJson from "../../data/whitelist.js";
 
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
@@ -48,6 +49,7 @@ const SalePage = () => {
   const {authOptions, userSession} = useConnect()
   const [lastTokenId, setLastTokenId] = useState(0)
   const [cityCats, setCityCats] = useState([])
+  const [whitelistHelper, setWhitelistHelper] = useState('');
 
   const saleRef = useRef();
   const aboutRef = useRef();
@@ -77,6 +79,23 @@ const SalePage = () => {
     return id;
   }
 
+  const getAllowAmountInWhitelist = async(address) => {
+    const whitelist = whitelistJson.whitelist;
+    console.log('getAllowAmountInWhitelist. address: ' + address);
+
+    if (whitelist) {
+      const allowAmount = whitelist[address];
+
+      if (allowAmount !== undefined) {
+        return `You have ${Number(allowAmount)} allow amount in whitelist`;
+      } else {
+        return `You don't have allow amount in whitelist`;
+      }
+    }
+
+    return '';
+  }
+
   const getCityCatsHoldings = async () => {
     let offset = 0
     let limit = 50
@@ -104,11 +123,13 @@ const SalePage = () => {
 
   useEffect(() => {
     if (ownerStxAddress) {
+      console.log('getAllowAmountInWhitelist');
       getCityCatsHoldings().then(nfts => {
         let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR.citycats-nft-v10::CityCats")
           .map(nft => nft.value.repr.replace('u', ''))
         setCityCats(cityCatNfts)
       })
+      getAllowAmountInWhitelist(ownerStxAddress).then(helperMessage => setWhitelistHelper(helperMessage));
     }
   }, [ownerStxAddress])
 
@@ -182,6 +203,27 @@ const SalePage = () => {
               >
                 About
               </Button>
+            </Box>
+            <Box sx={{
+              width: "100%",
+              position: "absolute",
+              bottom: width870 ? "1%" : "2%",
+              right: "auto",
+              textAlign: "center"
+            }}>
+              <Typography
+                  sx={{
+                    backgroundSize: "100% 100%",
+                    backgroundRepeat: "no-repeat",
+                    padding: width870 ? "0px 0px" : "10px 20px",
+                    fontSize: width870 ? "1.0rem" : "25px",
+                    fontWeight: "bold",
+                    minWidth: width870 ? "25%" : "15%",
+                    color: "white"
+                  }}
+                >
+                { whitelistHelper }
+              </Typography>
             </Box>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
