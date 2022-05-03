@@ -14,12 +14,12 @@ import ComingsoonPage from "./Comingsoon";
 const routes = [
   {
     path: '/',
-    renderer: (params = {}) => <WebBasicView {...params} />,
-  },
-  {
-    path: '/sales',
     renderer: (params = {}) => <SalePage {...params} />,
   },
+  // {
+  //   path: '/',
+  //   renderer: (params = {}) => <WebBasicView {...params} />,
+  // },
   {
     path: '/abouts',
     renderer: (params = {}) => <AboutPage {...params} />,
