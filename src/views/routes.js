@@ -12,12 +12,12 @@ import TeamPage from "./Team";
 import ComingsoonPage from "./Comingsoon";
 
 const routes = [
+  // {
+  //   path: '/',
+  //   renderer: (params = {}) => <WebBasicView {...params} />,
+  // },
   {
     path: '/',
-    renderer: (params = {}) => <WebBasicView {...params} />,
-  },
-  {
-    path: '/sales',
     renderer: (params = {}) => <SalePage {...params} />,
   },
   {
