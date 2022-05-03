@@ -227,14 +227,14 @@ const SalePage = () => {
               </Typography>
             </Box>
           </Box>
-          <Box sx={{backgroundColor: "#111141", padding: "10px 0px"}}>
+          <Box sx={{backgroundColor: "#111141", padding: "20px 0px"}}>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h4">
               WHITELIST-MINT
             </Typography>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h6">
-              2022/05/04 11:00 EST ~ 2022/05/06 10:59 EST
+              2022/05/04 11:00 ~ 2022/05/06 10:59 EST
             </Typography>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
