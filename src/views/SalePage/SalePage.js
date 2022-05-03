@@ -43,7 +43,7 @@ const SalePage = () => {
   const [mintCount, setMintCount] = useState(3);
   const {handleOpenAuth, handleSignOut} = useConnect();
   const atomUserSession = useAtomValue(userSessionState);
-  const {ownerStxAddress} = useStxAddresses(atomUserSession, true);
+  const {ownerStxAddress} = useStxAddresses(atomUserSession, false);
   const {connected} = useSelector((state) => state.connect);
   const dispatch = useDispatch();
   const {authOptions, userSession} = useConnect()
