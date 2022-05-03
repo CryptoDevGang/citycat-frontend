@@ -16,7 +16,7 @@ import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
 import {callReadOnlyFunction, cvToJSON, uintCV,} from "@stacks/transactions";
 import {Connect} from "@stacks/connect-react";
-import {StacksTestnet} from "@stacks/network";
+import {StacksMainnet, StacksTestnet} from "@stacks/network";
 import MintButton from "../../components/MintButton";
 import {useAtomValue} from "jotai";
 import {useStxAddresses} from "../../connect/hooks";
@@ -56,13 +56,13 @@ const SalePage = () => {
   const scrollAreaRef = useRef();
   const {onMouseDown} = useDraggableScroll(scrollAreaRef, {direction: 'horizontal'})
 
-  const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
-  const contractName = 'citycats-nft-v10'
+  const contractAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR'
+  const contractName = 'citycats-nft'
 
   const getLastTokenId = async () => {
     const functionName = 'get-last-token-id'
-    const network = new StacksTestnet()
-    const senderAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR'
+    const network = new StacksMainnet()
+    const senderAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR'
 
     const options = {
       contractAddress,
@@ -101,7 +101,7 @@ const SalePage = () => {
     let limit = 50
     let results = []
     while(true){
-      const nftHoldingApi = `https://stacks-node-api.testnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}&offset=${offset}&limit=${limit}`
+      const nftHoldingApi = `https://stacks-node-api.mainnet.stacks.co/extended/v1/tokens/nft/holdings?principal=${ownerStxAddress}&offset=${offset}&limit=${limit}`
       const result = await axios.get(nftHoldingApi)
       if(result.data.results.length === 0){
         break;
@@ -125,7 +125,7 @@ const SalePage = () => {
     if (ownerStxAddress) {
       console.log('getAllowAmountInWhitelist');
       getCityCatsHoldings().then(nfts => {
-        let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR.citycats-nft-v10::CityCats")
+        let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR.citycats-nft::CityCats")
           .map(nft => nft.value.repr.replace('u', ''))
         setCityCats(cityCatNfts)
       })
@@ -134,7 +134,8 @@ const SalePage = () => {
   }, [ownerStxAddress])
 
   const getCityCatsImageUrl = (number) => {
-    let url = `https://citycats.world/resource/reveal/${number}.png`
+    // let url = `https://citycats.world/resource/reveal/${number}.png`
+    let url = `https://citycats.world/resource/box/box.png`
     return url;
   }
 
@@ -229,7 +230,11 @@ const SalePage = () => {
           <Box sx={{backgroundColor: "#111141", padding: "10px 0px"}}>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h4">
-              PRE-MINT
+              WHITELIST-MINT
+            </Typography>
+            <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
+                        variant="h6">
+              2022/05/04 11:00 EST ~ 2022/05/06 10:59 EST
             </Typography>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
