@@ -301,10 +301,6 @@ const SalePage = () => {
                         variant="h6">
               {mintDateContext}
             </Typography>
-            <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
-                        variant="h6">
-              2022/05/04 11:00 ~ 2022/05/06 10:59 EST
-            </Typography>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
             <Container maxWidth="xl">
