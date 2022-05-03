@@ -226,6 +226,12 @@ const SalePage = () => {
               </Typography>
             </Box>
           </Box>
+          <Box sx={{backgroundColor: "#111141", padding: "10px 0px"}}>
+            <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
+                        variant="h4">
+              PRE-MINT
+            </Typography>
+          </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
             <Container maxWidth="xl">
               <Box ref={saleRef}>
