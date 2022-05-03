@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import React from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {FungibleConditionCode, makeStandardSTXPostCondition, PostConditionMode} from "@stacks/transactions";
-import {StacksTestnet} from "@stacks/network";
+import {StacksMainnet} from "@stacks/network";
 import {useConnect, Connect} from "@stacks/connect-react";
 import {useStxAddresses} from "../connect/hooks";
 import {userSessionState} from "../connect/auth"
@@ -37,8 +37,8 @@ const MintButton = (props) => {
   }
 
   function doMint(mintCount){
-    const contractAddress = 'ST1AE8AYE8GCXVX4711Y9B8D7BKVTYFYQTDKJJ3JR';
-    const contractName = 'citycats-nft-mint-v11';
+    const contractAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR';
+    const contractName = 'citycats-nft-mint';
     const functionName = getMintFunctionName(mintCount);
     const mintPrice = 50 * Math.pow(10, 6)
     const totalMintPrice = mintPrice * mintCount
@@ -54,7 +54,7 @@ const MintButton = (props) => {
         totalMintPrice
       )],
       functionArgs: [],
-      network: new StacksTestnet()
+      network: new StacksMainnet()
     }).then(value => {
       console.log("succeed")
     })
