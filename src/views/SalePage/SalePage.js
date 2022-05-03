@@ -16,13 +16,13 @@ import {setConnected} from "../../slices/connect";
 import {useDispatch} from "react-redux";
 import {callReadOnlyFunction, cvToJSON, uintCV,} from "@stacks/transactions";
 import {Connect} from "@stacks/connect-react";
-import {StacksMainnet, StacksTestnet} from "@stacks/network";
 import MintButton from "../../components/MintButton";
 import {useAtomValue} from "jotai";
 import {useStxAddresses} from "../../connect/hooks";
 import axios from "axios";
 import useDraggableScroll from "use-draggable-scroll";
 import whitelistJson from "../../data/whitelist.js";
+import {StacksMainnet} from "@stacks/network";
 
 
 const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
@@ -50,6 +50,10 @@ const SalePage = () => {
   const [lastTokenId, setLastTokenId] = useState(0)
   const [cityCats, setCityCats] = useState([])
   const [whitelistHelper, setWhitelistHelper] = useState('');
+  const [allowMinting, setAllowMinting] = useState(false);
+
+  const [mintContext, setMintContext] = useState('WHITELIST-MINT');
+  const [mintDateContext, setMintDateContext] = useState('2022/05/04 11:00 ~ 2022/05/06 10:59 EST');
 
   const saleRef = useRef();
   const aboutRef = useRef();
@@ -57,12 +61,12 @@ const SalePage = () => {
   const {onMouseDown} = useDraggableScroll(scrollAreaRef, {direction: 'horizontal'})
 
   const contractAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR'
+  const senderAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR'
   const contractName = 'citycats-nft'
 
   const getLastTokenId = async () => {
     const functionName = 'get-last-token-id'
     const network = new StacksMainnet()
-    const senderAddress = 'SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR'
 
     const options = {
       contractAddress,
@@ -78,6 +82,51 @@ const SalePage = () => {
 
     return id;
   }
+
+  const isPreMintingAvailable = async () => {
+    const functionName = 'get-pre-sale-active'
+    const contractName = 'citycats-nft-mint'
+    const network = new StacksMainnet()
+
+    const options = {
+      contractAddress,
+      contractName,
+      functionName,
+      functionArgs: [],
+      network,
+      senderAddress,
+    };
+
+    const result = await callReadOnlyFunction(options)
+    const isMintingAvailable = Boolean(cvToJSON(result).value.value);
+
+    console.log("isPreMintingAvailable: " + isMintingAvailable);
+
+    return isMintingAvailable;
+  }
+
+  const isPublicMintingAvailable = async () => {
+    const functionName = 'get-public-sale-active'
+    const contractName = 'citycats-nft-mint'
+    const network = new StacksMainnet()
+
+    const options = {
+      contractAddress,
+      contractName,
+      functionName,
+      functionArgs: [],
+      network,
+      senderAddress,
+    };
+
+    const result = await callReadOnlyFunction(options)
+    const isMintingAvailable = Boolean(cvToJSON(result).value.value);
+
+    console.log("isPublicMintingAvailable: " + isMintingAvailable);
+
+    return isMintingAvailable;
+  }
+
 
   const getAllowAmountInWhitelist = async(address) => {
     const whitelist = whitelistJson.whitelist;
@@ -130,6 +179,22 @@ const SalePage = () => {
         setCityCats(cityCatNfts)
       })
       getAllowAmountInWhitelist(ownerStxAddress).then(helperMessage => setWhitelistHelper(helperMessage));
+
+      isPreMintingAvailable().then(isStartPreSale => {
+        if (isStartPreSale) {
+          setMintContext('WHITELIST-MINT');
+          setAllowMinting(true);
+          return;
+        }
+
+        isPublicMintingAvailable().then(isStartPublicSale => {
+          if (isStartPublicSale) {
+            setMintContext('PUBLIC-MINT');
+            setMintDateContext('2022/05/06 13:00 ~ ')
+            setAllowMinting(true);
+          }
+        })
+      })
     }
   }, [ownerStxAddress])
 
@@ -230,11 +295,11 @@ const SalePage = () => {
           <Box sx={{backgroundColor: "#111141", padding: "20px 0px"}}>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h4">
-              WHITELIST-MINT
+              {mintContext}
             </Typography>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h6">
-              2022/05/04 11:00 ~ 2022/05/06 10:59 EST
+              {mintDateContext}
             </Typography>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
@@ -376,7 +441,7 @@ const SalePage = () => {
                             {
                               connected ?
                                 <Connect authOptions={authOptions}>
-                                  <MintButton mintCount={mintCount}/>
+                                  <MintButton mintCount={mintCount} disabled={!allowMinting}/>
                                 </Connect> :
                                 <Button
                                   variant={"contained"}

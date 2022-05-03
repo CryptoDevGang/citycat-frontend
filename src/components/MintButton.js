@@ -70,13 +70,18 @@ const MintButton = (props) => {
           fontSize: width870 ? "1rem" : "25px",
           fontWeight: "bold",
           minWidth: width870 ? "40%" : "25%",
-          color: "white"
+          color: "white",
+          "&:disabled": {
+            backgroundColor: '#037286FF'
+          }
         }}
         onClick={() => {
           doMint(props.mintCount)
         }}
+
+        disabled={props.disabled}
       >
-        MINT
+        {props.disabled ? 'MINT NOT OPEN YET' : 'MINT'}
       </Button>
     </>
   )
