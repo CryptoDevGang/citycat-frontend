@@ -134,7 +134,7 @@ const SalePage = () => {
   }, [ownerStxAddress])
 
   const getCityCatsImageUrl = (number) => {
-    let url = `https://ipfs.io/ipfs/QmPRfB68NKVJ3v3hTdGWfLVAXw8Ak1Gy5ZX7r99LRD1M2V/${number}.png`
+    let url = `https://citycats.world/resource/reveal/${number}.png`
     return url;
   }
 
