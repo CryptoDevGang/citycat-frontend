@@ -434,7 +434,7 @@ const SalePage = () => {
                           </Box>
                           <Box mt={3}>
                             <Typography sx={{textAlign: "center", fontWeight: "bold"}} variant={"h4"} color={"#c5b3ff"}>
-                              {mintCount} Cats.
+                              {mintCount} Cats
                             </Typography>
                           </Box>
                           <Box mt={2} sx={{width: "100%", textAlign: "center"}}>
@@ -493,7 +493,7 @@ const SalePage = () => {
               <Box sx={{padding: "30px 30px"}}>
                 <Box>
                   <Typography sx={{fontWeight: "bold", textAlign: "center"}} variant={"h4"} color={"white"}>
-                    My City Cats.
+                    My City Cats
                   </Typography>
                 </Box>
                 <Box mt={3}
@@ -539,7 +539,7 @@ const SalePage = () => {
                             src={"/sale/no_citycats.png"}/>
                         </Box>
                         <Typography mt={1} sx={{textAlign: "center", fontWeight: "bold"}} variant={"h5"} color={"white"}>
-                          Mint Now.
+                          Mint Now
                         </Typography>
                       </Card>
                   }
