@@ -50,7 +50,6 @@ const SalePage = () => {
   const [lastTokenId, setLastTokenId] = useState(0)
   const [cityCats, setCityCats] = useState([])
   const [whitelistHelper, setWhitelistHelper] = useState('');
-  const [allowMinting, setAllowMinting] = useState(false);
 
   const [mintContext, setMintContext] = useState('WHITELIST-MINT');
   const [mintDateContext, setMintDateContext] = useState('2022/05/04 11:00 ~ 2022/05/06 10:59 EST');
@@ -172,28 +171,10 @@ const SalePage = () => {
 
   useEffect(() => {
     if (ownerStxAddress) {
-      console.log('getAllowAmountInWhitelist');
       getCityCatsHoldings().then(nfts => {
         let cityCatNfts = nfts.filter(nft => nft.asset_identifier === "SP2CV06TQ8B5NXKM6E66VCKYCS9FFDGEB8ZPK6JMR.citycats-nft::CityCats")
           .map(nft => nft.value.repr.replace('u', ''))
         setCityCats(cityCatNfts)
-      })
-      getAllowAmountInWhitelist(ownerStxAddress).then(helperMessage => setWhitelistHelper(helperMessage));
-
-      isPreMintingAvailable().then(isStartPreSale => {
-        if (isStartPreSale) {
-          setMintContext('WHITELIST-MINT');
-          setAllowMinting(true);
-          return;
-        }
-
-        isPublicMintingAvailable().then(isStartPublicSale => {
-          if (isStartPublicSale) {
-            setMintContext('PUBLIC-MINT');
-            setMintDateContext('2022/05/06 13:00 ~ ')
-            setAllowMinting(true);
-          }
-        })
       })
     }
   }, [ownerStxAddress])
@@ -295,11 +276,11 @@ const SalePage = () => {
           <Box sx={{backgroundColor: "#111141", padding: "20px 0px"}}>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h4">
-              {mintContext}
+              {'PUBLIC-MINT'}
             </Typography>
             <Typography sx={{color: "#ffffff", fontWeight: "bold", textAlign: "center"}}
                         variant="h6">
-              {mintDateContext}
+              {'2022/05/06 13:00 ~ '}
             </Typography>
           </Box>
           <Box sx={{backgroundColor: "#1d1e6f", paddingBottom: width870 ? "30px" : "0px"}}>
@@ -441,7 +422,7 @@ const SalePage = () => {
                             {
                               connected ?
                                 <Connect authOptions={authOptions}>
-                                  <MintButton mintCount={mintCount} disabled={!allowMinting}/>
+                                  <MintButton mintCount={mintCount}/>
                                 </Connect> :
                                 <Button
                                   variant={"contained"}
