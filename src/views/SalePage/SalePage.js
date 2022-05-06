@@ -49,7 +49,6 @@ const SalePage = () => {
   const {authOptions, userSession} = useConnect()
   const [lastTokenId, setLastTokenId] = useState(0)
   const [cityCats, setCityCats] = useState([])
-  const [whitelistHelper, setWhitelistHelper] = useState('');
   const [allowMinting, setAllowMinting] = useState(false);
 
   const [mintContext, setMintContext] = useState('WHITELIST-MINT');
@@ -127,24 +126,6 @@ const SalePage = () => {
     return isMintingAvailable;
   }
 
-
-  const getAllowAmountInWhitelist = async(address) => {
-    const whitelist = whitelistJson.whitelist;
-    console.log('getAllowAmountInWhitelist. address: ' + address);
-
-    if (whitelist) {
-      const allowAmount = whitelist[address];
-
-      if (allowAmount !== undefined) {
-        return `You have ${Number(allowAmount)} allow amount in whitelist`;
-      } else {
-        return `You don't have allow amount in whitelist`;
-      }
-    }
-
-    return '';
-  }
-
   const getCityCatsHoldings = async () => {
     let offset = 0
     let limit = 50
@@ -178,7 +159,6 @@ const SalePage = () => {
           .map(nft => nft.value.repr.replace('u', ''))
         setCityCats(cityCatNfts)
       })
-      getAllowAmountInWhitelist(ownerStxAddress).then(helperMessage => setWhitelistHelper(helperMessage));
 
       isPreMintingAvailable().then(isStartPreSale => {
         if (isStartPreSale) {
@@ -269,27 +249,6 @@ const SalePage = () => {
               >
                 About
               </Button>
-            </Box>
-            <Box sx={{
-              width: "100%",
-              position: "absolute",
-              bottom: width870 ? "1%" : "2%",
-              right: "auto",
-              textAlign: "center"
-            }}>
-              <Typography
-                  sx={{
-                    backgroundSize: "100% 100%",
-                    backgroundRepeat: "no-repeat",
-                    padding: width870 ? "0px 0px" : "10px 20px",
-                    fontSize: width870 ? "1.0rem" : "25px",
-                    fontWeight: "bold",
-                    minWidth: width870 ? "25%" : "15%",
-                    color: "white"
-                  }}
-                >
-                { whitelistHelper }
-              </Typography>
             </Box>
           </Box>
           <Box sx={{backgroundColor: "#111141", padding: "20px 0px"}}>
