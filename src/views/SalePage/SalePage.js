@@ -180,8 +180,8 @@ const SalePage = () => {
   }, [ownerStxAddress])
 
   const getCityCatsImageUrl = (number) => {
-    // let url = `https://citycats.world/resource/reveal/${number}.png`
-    let url = `https://citycats.world/resource/box/box.png`
+    let url = `https://citycats.world/resource/reveal/${number}.png`
+    // let url = `https://citycats.world/resource/box/box.png`
     return url;
   }
 
